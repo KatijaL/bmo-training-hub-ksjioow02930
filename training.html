@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMO Training Hub — Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<header class="site">
+  <div class="container nav">
+    <div class="brand"><span class="kicker">BMO</span><strong>Training Hub</strong></div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink active" href="training.html">Training</a>
+      <a class="navlink" href="capital.html">Capital Season</a>
+      <a class="navlink" href="sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="projects.html">Projects</a>
+      <a class="navlink" href="quiz.html">Quiz</a>
+      <a class="navlink" href="faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <h1>Training Materials</h1><p class="muted">Updated Aug 10, 2025</p>
+    <label for="trainSearch">Search training</label>
+    <form class="searchbar" onsubmit="event.preventDefault(); location.href='search.html?q='+encodeURIComponent(this.q.value)">
+      <input id="trainSearch" name="q" type="search" placeholder="Search within training" />
+      <button class="btn primary" type="submit">Search</button>
+    </form>
+
+    <div class="chips" id="filterChips" style="margin-top:10px"><button class="chip active" type="button" data-tag="all">All</button><button class="chip" type="button" data-tag="capital">Capital</button><button class="chip" type="button" data-tag="procurement">Procurement</button></div>
+
+    <div class="cards two-col" id="topics" style="margin-top:12px">
+      <article class="card" data-tag="Capital Process" data-id="cap-overview">
+        <h3>Capital Training — Overview of the Season</h3>
+        <p class="muted">End‑to‑end capital process, roles, cadence, and quality gates.</p>
+        <div><a class="btn" href="training/capital-overview-course.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="SPO System" data-id="spo-workflow">
+        <h3>Systems Training — SPO Vetting Workflow</h3>
+        <p class="muted">Exact status flow, automations, lists, and file standards.</p>
+        <div><a class="btn" href="training/spo-workflow.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="Privacy & IT" data-id="privacy-it">
+        <h3>Health Canada, Privacy & IT Implementation</h3>
+        <p class="muted">PIA/STRA triggers, infra readiness, and go‑live conditions.</p>
+        <div><a class="btn" href="training/privacy-it.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="Funding" data-id="funding">
+        <h3>Funding: KDZ/COZ, Funding Letters & Annual Grant</h3>
+        <p class="muted">Apply codes, manage letters, use PYC, reconcile to GL.</p>
+        <div><a class="btn" href="training/funding.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="Pre-PO" data-id="prepo">
+        <h3>From Funding to PO Issuance (Pre‑PO)</h3>
+        <p class="muted">Pre‑procurement confirmation, requisitions, coding, approvals, handoff.</p>
+        <div><a class="btn" href="training/from-funding-to-po-issuance.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="Post-PO" data-id="postpo">
+        <h3>From Receiving to In‑Service (Post‑PO)</h3>
+        <p class="muted">Shipments, stage receiving, inspection, training, and change orders.</p>
+        <div><a class="btn" href="training/postpo.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="Basware" data-id="basware">
+        <h3>Basware Invoicing & Match Exceptions</h3>
+        <p class="muted">2‑/3‑/4‑way, match results, correcting holds, and mismatches.</p>
+        <div><a class="btn" href="training/basware.html">Open topic →</a></div>
+      </article>
+
+      <article class="card" data-tag="Reconciliation" data-id="recon">
+        <h3>Payment & Reconciliation</h3>
+        <p class="muted">Reconciling to funding (GL), PYCs, and reporting.</p>
+        <div><a class="btn" href="training/recon.html">Open topic →</a></div>
+      </article>
+    </div>
+  
+
+</div>
+
+
+
+
+
+
+
+<script>
+(function(){
+  function apply(mode){
+    var allow = {
+      capital: ['cap-overview','spo-workflow','privacy-it','funding'],
+      procurement: ['prepo','postpo','basware','recon'],
+      all: null
+    };
+    var cards = document.querySelectorAll('#topics .card');
+    cards.forEach(function(card){
+      var id = card.getAttribute('data-id') || '';
+      card.style.display = (!allow[mode] || allow[mode].includes(id)) ? '' : 'none';
+    });
+    document.querySelectorAll('#filterChips .chip').forEach(function(c){ c.classList.remove('active'); });
+    var hit = document.querySelector('#filterChips .chip[data-tag="'+mode+'"]');
+    if(hit) hit.classList.add('active');
+  }
+  function select(tag){ apply(tag); }
+  // Wire chips
+  document.querySelectorAll('#filterChips .chip').forEach(function(b){
+    b.addEventListener('click', function(){ select(this.getAttribute('data-tag')); });
+  });
+  // Deep link
+  var pf = new URLSearchParams(location.search).get('filter') || 'all';
+  if(['all','capital','procurement'].indexOf(pf)===-1) pf = 'all';
+  select(pf);
+})();
+</script>
+
+
+<section class="card cant-find" style="margin:18px auto; max-width:960px">
+  <h2>Can’t find what you are looking for?</h2>
+  <form id="cantFindForm" onsubmit="event.preventDefault(); return submitTrainingQuestion(this.question.value)">
+    <input name="question" placeholder="Ask us here" required style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(0,0,0,.15)">
+    <div style="display:flex; justify-content:flex-end; margin-top:8px">
+      <button class="btn primary" type="submit" style="width:180px; justify-content:center">Submit</button>
+    </div>
+  </form>
+</section>
+</main>
+<footer class="site"><div class="container">© 2025 BMO</div></footer>
+  <script src="assets/js/forms-hooks.js"></script>
+</body>
+</html>

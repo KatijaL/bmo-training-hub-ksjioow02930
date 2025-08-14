@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Capital Training — Overview of the Season (Course)</title>
+<style>.maingrid{display:grid;grid-template-columns:1fr;gap:18px}.hero{background:#f8fafc;border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:16px}.course-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}.course-item{border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff}.course-link{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;text-decoration:none;color:inherit}.badge{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;border-radius:999px;background:#0ea5e9;color:#fff;font-weight:700}.ctitle{font-weight:700}.teaser{display:block;color:#5b6472;font-size:.92rem;margin-top:2px}</style>
+<style>
+/* Font alignment across pages */
+html, body { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:#0D1321; }
+h1, h2, h3, h4 { font-family: 'Abril Fatface', Georgia, serif; color:#0D1321; letter-spacing:.2px; }
+
+:root{
+  --ink:#0D1321;
+  --brand-dark:#1D2D44;
+  --brand-mid:#3E5C76;
+  --brand-muted:#748CAB;
+  --bg-soft:#F0EBD8;
+}
+/* buttons & links adopt palette */
+a.btn { background: var(--brand-mid); color:#F0EBD8; border:1px solid var(--brand-dark); }
+a.btn:hover{ background: var(--brand-dark); }
+/* course list & panels */
+.course-item, .panel{ border:1px solid var(--brand-muted); background:#fff; }
+.badge{ background: var(--brand-mid); color:#F0EBD8; }
+.sidenav{ border-color: var(--brand-muted); }
+.navlink.active, .navlink:hover{ background: var(--bg-soft); border-color: var(--brand-muted); }
+.sublist .sublink:hover{ background: var(--bg-soft); }
+/* callouts (use only palette) */
+.callout{ border:1px solid var(--brand-muted); background:#F0EBD8; }
+.callout.goal{ background:#F0EBD8; }
+.callout.steps{ background:#F0EBD8; }
+.callout.quality{ background:#F0EBD8; }
+.callout.tips{ background:#F0EBD8; font-style:italic; }
+/* cycle */
+.cycle{ border:2px dashed var(--brand-muted); background:#fff; color:var(--ink); }
+</style>
+<style>
+/* Fonts */
+html, body { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:#0D1321; }
+h1, h2, h3, h4 { font-family: 'Abril Fatface', Georgia, serif; color:#0D1321; letter-spacing:.2px; }
+:root{
+  --ink:#0D1321;
+  --brand-dark:#1D2D44;
+  --brand-mid:#3E5C76;
+  --brand-muted:#748CAB;
+  --bg-soft:#F0EBD8;
+}
+a.btn { background: var(--brand-mid); color:#F0EBD8; border:1px solid var(--brand-dark); }
+a.btn:hover{ background: var(--brand-dark); }
+.course-item, .panel{ border:1px solid var(--brand-muted); background:#fff; }
+.badge{ background: var(--brand-mid); color:#F0EBD8; }
+.sidenav{ border-color: var(--brand-muted); }
+.navlink.active, .navlink:hover{ background: var(--bg-soft); border-color: var(--brand-muted); }
+.sublist .sublink:hover{ background: var(--bg-soft); }
+.callout{ border:1px solid var(--brand-muted); background:#F0EBD8; }
+.cycle{ border:2px dashed var(--brand-muted); background:#fff; color:var(--ink); padding:.6rem .8rem; border-radius:10px; }
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.prevnext a{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid var(--brand-muted);border-radius:10px;padding:.6rem .8rem;background:#fff}
+.prevnext small{color:#748CAB}
+/* RACI table styling to match screenshot */
+.raci-wrap{background:#F0EBD8;padding:10px;border-radius:14px;border:1px solid var(--brand-muted)}
+.raci-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--brand-muted);border-radius:12px;overflow:hidden;background:#fff}
+.raci-table th{background:#fff; font-weight:700}
+.raci-table th, .raci-table td{padding:.65rem .75rem;border-bottom:1px solid #e6e1d4;border-right:1px solid #e6e1d4}
+.raci-table th:last-child, .raci-table td:last-child{border-right:0}
+.raci-table tr:nth-child(odd) td{background:#fbfaf6}
+.legend{margin:.4rem 0 .8rem 0}
+.legend strong{font-weight:700}
+/* Sidebar toggle caret appears only when section has children */
+.navlink[data-has-children="true"] .caret{display:inline-block;margin-right:.25rem;border:6px solid transparent;border-left-color:var(--brand-muted);transform:rotate(0deg);transition:transform .15s ease}
+.navlink[data-has-children="true"].expanded .caret{transform:rotate(90deg)}
+</style>
+</head><body>
+<header class="site">
+  <div class="container nav" role="navigation" aria-label="Primary" style="justify-content:flex-start">
+    <div class="brand" aria-label="Site" style="margin-right:18px">
+      <span class="kicker" style="color:var(--mid)">BMO</span>
+      <strong>Training Hub</strong>
+    </div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="../index.html">Home</a>
+      <a class="navlink" href="../training.html" class="active" aria-current="page">Training</a>
+      <a class="navlink" href="../capital.html">Capital Season</a>
+      <a class="navlink" href="../sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="../projects.html">Projects</a>
+      <a class="navlink" href="../quiz.html">Quiz</a>
+      <a class="navlink" href="../faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+<main><div class="container">
+<a class="btn" href="../training.html">← Back to Training</a>
+<h1 style="margin-top:12px">Capital Training — Overview of the Season</h1>
+<div class="maingrid">
+  <section class="hero"><h2>Introduction</h2><p>Capital Training — Overview of the Season</p>
+<p>Business Management Office</p>
+<p>This guidebook is the core training for new hires. It covers the end‑to‑end capital process (what happens, when, why), the artifacts you’ll use, the approvals you’ll chase, and the quality gates you must pass before moving forward.</p></section>
+  <section><h2>Course content</h2><ul class="course-list"><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=1"><span class="badge">1</span><span class="ctitle">Purpose &amp; Outcomes</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=2"><span class="badge">2</span><span class="ctitle">Request Types &amp; Classification</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=3"><span class="badge">3</span><span class="ctitle">Two Typical Intake Scenarios</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=4"><span class="badge">4</span><span class="ctitle">Common Documentation Types</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=5"><span class="badge">5</span><span class="ctitle">Vetting Process</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=6"><span class="badge">6</span><span class="ctitle">Quality Gates</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=7"><span class="badge">7</span><span class="ctitle">Common Pitfalls &amp; How to Avoid Them</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=8"><span class="badge">8</span><span class="ctitle">Roles &amp; RACI</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=9"><span class="badge">9</span><span class="ctitle">Glossary</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=12"><span class="badge">12</span><span class="ctitle">On Boarding Practice</span></a></li><li class="course-item"><a class="course-link" href="capital-overview-content.html?s=13"><span class="badge">13</span><span class="ctitle">Key Links</span></a></li></ul></section>
+</div></div></main>
+<footer class="site">
+  <div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div>
+</footer>
+
+
+
+
+<footer class="footer"><div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div></footer></body></html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capital Training — Overview of the Season — BMO Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css" />
+<style>
+/* === Readability & filters === */
+.filterbar{position:sticky;top:60px;z-index:30;background:var(--bg,#fff);padding:8px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid rgba(0,0,0,.06)}
+.chip{border:1px solid rgba(0,0,0,.15);padding:.4rem .7rem;border-radius:999px;cursor:pointer;background:transparent;font-size:.9rem}
+.chip.active{background:rgba(0,0,0,.06)}
+.section-card{scroll-margin-top:100px}
+.subfilter{display:flex;gap:6px;margin:.5rem 0 .25rem 0;flex-wrap:wrap}
+.chip.small{font-size:.8rem;padding:.25rem .55rem}
+.raci-table{width:100%;border-collapse:collapse;margin-top:.5rem}
+.raci-table th,.raci-table td{border:1px solid rgba(0,0,0,.1);padding:.5rem;text-align:left}
+.secnum{opacity:.7;margin-right:.25rem}
+</style>
+<style>
+/* ===== Premium Training UI (flat & minimalist) ===== */
+:root{
+  --bg: #ffffff;
+  --ink: #111318;
+  --muted: #5b6472;
+  --line: rgba(17,19,24,.10);
+  --brand1: #0ea5e9;  /* cyan */
+  --brand2: #8b5cf6;  /* violet */
+  --chip: #f3f4f6;
+  --card: #ffffff;
+  --shadow: 0 4px 14px rgba(0,0,0,.07);
+}
+main .container{max-width:1100px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width: 980px){ .cards{grid-template-columns:1fr}}
+.section-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease}
+.section-card:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.09)}
+.section-card h2{display:flex;align-items:center;gap:.6rem;margin:0 0 .4rem 0;font-size:1.15rem;letter-spacing:.1px}
+.section-card p{line-height:1.6;color:var(--ink);font-size:1rem}
+.section-card ul{margin:.25rem 0 .75rem 1.25rem}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 8px;border-radius:999px;background:linear-gradient(90deg,var(--brand1),var(--brand2));color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+.ico{opacity:.8}
+.title{font-weight:700}
+/* Filter bar (sticky, scrollable pills) */
+.filterbar{position:sticky;top:56px;z-index:50;background:linear-gradient(#fff,#fff);display:flex;gap:8px;align-items:center;overflow-x:auto;padding:10px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);scrollbar-width:none}
+.filterbar::-webkit-scrollbar{display:none}
+.chip{border:1px solid var(--line);background:#fff;padding:.5rem .8rem;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .15s ease, border-color .15s ease}
+.chip:hover{background:#f9fafb}
+.chip.active{background:var(--chip);border-color:#e5e7eb}
+/* Timeline & accordions (Section 5) */
+.timeline{position:relative;padding-left:16px}
+.timeline::before{content:"";position:absolute;left:16px;top:44px;bottom:8px;width:2px;background:var(--line)}
+.timeline .subfilter{margin:.25rem 0 .5rem 0;display:flex;gap:6px;flex-wrap:wrap}
+.timeline .chip.small{background:#fff}
+.timeline-item{position:relative;margin-left:18px;margin-bottom:.5rem}
+.timeline-item .dot{position:absolute;left:-26px;top:11px;width:10px;height:10px;border-radius:50%;background:var(--brand1)}
+.stage-accordion{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.stage-accordion > summary{list-style:none;cursor:pointer;padding:.7rem .9rem .7rem 1.9rem;position:relative;font-weight:600}
+.stage-accordion > summary::-webkit-details-marker{display:none}
+.stage-accordion[open] > summary{background:#fafafa}
+.stage-accordion > summary .caret{position:absolute;left:.7rem;top:50%;width:10px;height:10px;transform:translateY(-50%) rotate(-90deg);border:2px solid var(--muted);border-left:0;border-bottom:0}
+.stage-accordion[open] > summary .caret{transform:translateY(-50%) rotate(45deg)}
+.stage-accordion p, .stage-accordion ul{padding:.5rem .9rem 1rem 1.9rem;margin:0}
+/* RACI table */
+.raci-table{width:100%;border-collapse:separate;border-spacing:0 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.raci-table thead th{position:sticky;top:0;background:#f9fafb;font-size:.92rem}
+.raci-table th,.raci-table td{padding:.6rem .7rem;border-bottom:1px solid #eee;text-align:left}
+.raci-table tbody tr:nth-child(odd){background:#fcfcfd}
+.legend{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.4rem 0 .4rem 0}
+.legend abbr{background:#eef6ff;border:1px solid #cfe3ff;padding:.16rem .4rem;border-radius:999px;text-decoration:none;cursor:help}
+/* Section anchors behavior */
+.section-card{scroll-margin-top:120px}
+</style>
+<style>
+/* Callouts for readability */
+.callout{padding:.6rem .8rem;margin:.5rem 0;border-radius:8px}
+.callout.goal{background:#ecfdf5;border:1px solid #a7f3d0}
+.callout.steps{background:#eff6ff;border:1px solid #bfdbfe}
+.callout.quality{background:#fefce8;border:1px solid #fde68a}
+.callout.tips{background:#f0f9ff;border:1px solid #bae6fd;font-style:italic}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="container nav">
+    <div class="brand"><span class="kicker">BMO</span><strong>Training Hub</strong></div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="../index.html">Home</a>
+      <a class="navlink active" href="../training.html">Training</a>
+      <a class="navlink" href="../capital.html">Capital Season</a>
+      <a class="navlink" href="../projects.html">Projects</a>
+      <a class="navlink" href="../quiz.html">Quiz</a>
+      <a class="navlink" href="../faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <a class="btn" href="../training.html">← Back to Training</a>
+    <h1 style="margin-top:12px">Capital Training — Overview of the Season</h1>
+    <div class="prose">
+<p>Capital Training — Overview of the Season</p>
+<p>Business Management Office</p>
+<p>This guidebook is the core training for new hires. It covers the end‑to‑end capital process (what happens, when, why), the artifacts you’ll use, the approvals you’ll chase, and the quality gates you must pass before moving forward.</p>
+<h2>1) Purpose &amp; Outcomes</h2>
+<ul>
+<li>The capital request cycle takes a request from:</li>
+<p>idea → approved idea → submitted request → vetted request → funded → purchased → installed → in service → paid → new idea</p>
+<li>Throughout this process we ensure:</li>
+<li>Clinical readiness &amp; safety:</li>
+<p>equipment is supportable (Biomed), installable (FMO), cleanable (IPAC/MDRD), and integration operatable (PDHIS/CI).</p>
+<li>Funding compliance:</li>
+<p>correct source (Ministry of Health, Children’s Foundation, Women’s Foundation), with clear approvals and documentation.</p>
+<li>Procurement integrity:</li>
+<p>policy‑aligned quotes, competitive considerations, accurate coding, and comprehensive record management.</p>
+<li>Operational preparation &amp; continuity:</li>
+<p>deficiency management, inspection, in‑service, invoice, and reconciliation with complete handover and operations transition.</p>
+<p>Capital season cadence: main cycle runs roughly Aug 31 → March (+2) with funding approval releases in April (+1) and completed procurement in March (+2).</p>
+<p>Tip: With exceptions that urgent/ad‑hoc items may run outside the cycle.</p>
+</ul>
+<h2>2) Request Types &amp; Classification</h2>
+<ul>
+<li>1. Minor request</li>
+<p>Equipment unit price valued less than $10,000</p>
+<li>Exception:</li>
+<p>probes, implants, and instruments valued greater than $10,000</p>
+<p>Software, licenses, and Saas products valued greater than $10,000</p>
+<li>2. Capital request</li>
+<p>Equipment valued at $10,000 per unit or greater</p>
+<p>Individual units of IMIT equipment valued at $10,000 per unit or greater</p>
+<li>3. Capital project (meets ≥3 items below)</li>
+<p>≥5 vendors / multiple product lines to compare</p>
+<p>IMITS/ database component (requires an SDP &amp; technical PM)</p>
+<p>Renovation scope (power, data, millwork)</p>
+<p>Competitive bid (RFP or formal bid) required before PO</p>
+<p>Multiple/ Sitewide trials to select the right model</p>
+<p>Multi‑year service/ extended warranty/ case support to be managed</p>
+<p>Multiple consumables/SKUs needing direct purchasing &amp; inventory</p>
+<p>Business case required for approval</p>
+<p>Total cost &gt; $1M</p>
+<p>First/ only system in BC</p>
+<p>Tip: When in doubt, treat as a capital request and escalate to your Project Advisor for project designation.</p>
+</ul>
+<h2>3) Two Typical Intake Scenarios</h2>
+<ul>
+<li>A. Manually generated by BMO</li>
+<p>Triggered by Biomed high‑risk database or strategic need.</p>
+<p>Use Cost Centre Number = “Undetermined” during data entry.</p>
+<p>Requires an extra Request Initiation step in SPO.</p>
+<li>B. Clinically submitted (via SPO Capital Request Form)</li>
+<li>Requestor would pre‑populated fields:</li>
+<p>site, department, request type, NURE, equipment model, quantity, vendor, storage, consumables, contact, etc.</p>
+<p>Agent will verify, complete gaps, and drive approvals.</p>
+</ul>
+<h2>4) Common Documentation Types</h2>
+<ul>
+<li>Vendor package:</li>
+<p>Quote(s), brochure and specs</p>
+<p>Warranty/PM/coverage years</p>
+<p>Consumables list &amp; costs</p>
+<p>Health Canada certificate</p>
+<p>MIFU/IFU</p>
+<p>ESS</p>
+<li>Approvals &amp; forms:</li>
+<p>Requestor approval</p>
+<p>7 Support Services approvals</p>
+<p>Senior Leadership approval</p>
+<li>As needed (IT):</li>
+<p>New Initiative Request (I-PASS)</p>
+<p>Privacy Review (PIA)</p>
+<p>Security Threat/Risk Assessment (STRA)</p>
+<li>As needed (Reno):</li>
+<p>Facility Intake Request (1553 BE)</p>
+<p>Minor Works (MW)</p>
+<li>Naming &amp; subject convention:</li>
+<li>Ticket links:</li>
+<p>CWBMO-### Documentation</p>
+<p>CWBMO-### Comment and Upload</p>
+<p>CWBMO-### Information Intake</p>
+<p>Folder: CWBMO-### [Request Title]</p>
+<p>Files: CWBMO-### [Title] [Vendor Model] [Doc Type]</p>
+<p>Vendor email subject: [Hospital] CWBMO-### – Inquiry for Supporting Documentation</p>
+</ul>
+<h2>5) Vetting Process</h2>
+<h3>Stage 1 — Request Intake</h3>
+<p>Goal: Capture a complete, triageable request with the right descriptors and early risk flags.</p>
+<p>Your checks</p>
+<p>Request Type (Minor / Capital / Project)</p>
+<p>NURE (New / Upgrade / Replacement / Expansion)</p>
+<p>Clinical rationale &amp; patient impact (from Request Description and Justification)</p>
+<p>Equipment details including make/model, qty, options, storage location, needed consumables (usually 6‑month estimate unless clinic specifies otherwise)</p>
+<p>Quote recency &amp; validity; price math</p>
+<p>Contact details &amp; department/cost centre context</p>
+<p>SPO data entry tips</p>
+<p>Enter subtotal (before tax); SPO auto‑calculates tax.</p>
+<p>Use the pre‑discount field where present; document discounts in notes/attachments.</p>
+<p>Use Request Comment &amp; Upload (left menu) to leave yourself dated follow‑ups.</p>
+<p>Decision gates</p>
+<p>If core info is missing, set status to On Hold and email the requestor with a clear checklist of gaps.</p>
+<h3>Stage 2 — Vendor Engagement</h3>
+<p>Goal: Obtain a complete vendor package for assessment and approvals.</p>
+<p>Steps</p>
+<p>Copy the latest Vendor Engagement Email Template (do not overwrite the master) and fill placeholders.</p>
+<p>Attach ESS (if required). Use naming subject standard.</p>
+<p>Change SPO Status → Vendor Engagement; log date and any follow‑ups.</p>
+<ul>
+<li>On receipt, validate:</li>
+<p>item numbers</p>
+<p>configurations</p>
+<p>warranty terms (e.g., 1‑yr warranty + 7‑yr service)</p>
+<p>install/in‑service scope</p>
+<p>lead time</p>
+<p>training</p>
+<p>trade‑ins</p>
+<p>consumables</p>
+<p>MIFU/IFU</p>
+<p>Health Canada</p>
+<p>Upload docs to Documentation. Apply naming convention and Document Type. For multi‑vendor scenarios, create a vendor‑named subfolder. Archive losing vendor once a finalist is confirmed.</p>
+<p>Quality gate</p>
+<p>No advancement until the vendor package is complete enough for support services to review.</p>
+<p>Follow‑up cadence</p>
+<p>First request → wait 3–5 business days → polite reminder → escalate to alt contact / sales manager if no reply by day 10.</p>
+</ul>
+<h3>Stage 3 — Clinical Approval</h3>
+<p>Goal: Confirm the request reflects the clinical need and chosen configuration.</p>
+<p>Steps</p>
+<p>Flip status to Requested – Clinical Approval (SPO auto‑emails the requestor/clinical lead a short approval form).</p>
+<p>Monitor the Request Engagement tab; respond to comments; adjust ticket details and documentation if clinicians request changes.</p>
+<p>Record outcome: Approved/Rejected – Clinical.</p>
+<p>Notes</p>
+<p>For trials: summarize outcomes (fit, usability, image quality, workflow). Attach trial notes in Documentation.</p>
+<p>For fleets: ensure model/qty and deployment plan are explicit.</p>
+<h3>Stage 4 — Support Services Engagement (7 services)</h3>
+<p>Goal: Ensure feasibility, safety, and supportability across C&amp;W.</p>
+<p>Trigger</p>
+<ul>
+<li>Set status to Requested – Support Services (SPO sends to all seven):</li>
+<p>Biomed – serviceability, inspection, PM ownership</p>
+<p>FMO – power, data, space, renovations</p>
+<p>Clinical Informatics / PDHIS – network, licensing, VMs/servers, interface</p>
+<p>IPAC – cleaning/disinfection/sterilization suitability</p>
+<p>MDRD – reprocessing needs (if applicable)</p>
+<p>MED – storage/loaner logistics</p>
+<p>Working the queue</p>
+<p>Check/respond to comments in Request Engagement and Request Comment &amp; Upload.</p>
+<li>If a service requests changes (e.g., Biomed cannot service):</li>
+<p>Obtain vendor service contract/PM coverage and updated quote.</p>
+<p>Document the change and re‑circulate if it impacts other services (e.g., FMO for install power).</p>
+<p>Reminder cadence</p>
+<p>Use SPO’s Agent Reminders (up to ×5). Typical rhythm: day 3, 6, 9, 12, 15.</p>
+<p>If still pending, escalate to service lead with a concise summary and blockers.</p>
+<p>Quality gate</p>
+<p>Proceed only when all required services are Approved (or a documented, endorsed condition is noted).</p>
+</ul>
+<h3>Stage 5 — Senior Leadership Approval</h3>
+<p>Goal: Confirm program priority and operational impact.</p>
+<p>Steps</p>
+<p>Identify approver via Org Chart; populate Director/MDH Approver field in SPO.</p>
+<p>Obtain approval. If requested, attach a 1‑page summary (what/why/cost/funding path/impacts).</p>
+<p>In the ticket, go to Function Tab → Upload to Checklist to generate a Request Checklist entry.</p>
+<p>In Request Checklist: validate NURE (cross‑check past tickets/biomed DB), enter reviewer name, leave Director Review Date blank if not needed, and Request Review.</p>
+<p>Address reviewer comments and re‑submit if asked.</p>
+<p>Quality gate</p>
+<p>Leadership approval + checklist entry completed.</p>
+<h3>Stage 6 — Funding Submission &amp; Approval</h3>
+<p>Goal: Match the request to the best funding source and secure approvals.</p>
+<p>Actions</p>
+<p>Prepare the Funding Booklet entry (short description, quantity, price basis, clinical impact, support status).</p>
+<p>Track deadlines in Capital Season Planner.</p>
+<ul>
+<li>Understand source behavior:</li>
+<p>Annual Grant / Guaranteed – typically Notional approval in Jan; Actual in Apr.</p>
+<p>Foundation Letters – arrive post‑donation; file in Documentation and update the Funding tab.</p>
+<p>MoH/RCI/IMITS – may require additional business case/IPASS materials.</p>
+<p>Quality gate</p>
+<p>A written funding decision exists in the record (letter, email, notional/actual note) and the Funding fields are updated.</p>
+</ul>
+<h3>Stage 7 — Pre‑PO (Procurement Initiation)</h3>
+<p>Goal: Convert the funded, approved request into a clean PO.</p>
+<p>Checklist</p>
+<p>Final vendor quote (right config/qty; install, training, freight; warranty/service lines clear)</p>
+<p>Confirm Biomed service model; FMO scope &amp; costs known if applicable</p>
+<p>Requisition(s) drafted (capital/ePro), coded correctly; route for approvals per Financial Signing Register</p>
+<p>Coordinate with Capital Management for capital coding and with Supply Chain for PO issuance</p>
+<p>Confirm vendor lead time and delivery plan; add expected dates to tracker</p>
+<p>Common adds</p>
+<p>Extended warranty years, PM coverage, and any required accessories.</p>
+<h3>Stage 8 — Post‑PO (Delivery, Install, In‑Service)</h3>
+<p>Goal: Receive, inspect, install, and train users without surprises.</p>
+<p>Steps</p>
+<p>Track shipments; verify all line items on arrival.</p>
+<p>Arrange inspection (Biomed) and site‑readiness (FMO) as needed.</p>
+<p>Coordinate vendor install and in‑service training with the clinical area.</p>
+<p>Log any deficiencies/change orders; resolve promptly and document.</p>
+<p>Quality gate</p>
+<p>Equipment in place, passes inspection, and end users trained (attendance or confirmation captured).</p>
+<h3>Stage 9 — Invoice &amp; Reconciliation</h3>
+<p>Goal: Pay accurately and close the loop with funding.</p>
+<p>Steps</p>
+<p>Collect invoices (from vendor/AP/DocuShare) and match to PO lines.</p>
+<p>Resolve mismatches (qty/price/freight) with vendor &amp; Supply Chain.</p>
+<p>Approve for payment; ensure cost hits the correct funding source.</p>
+<p>Reconcile against Funding Letter or approved allocation; document any variance/savings.</p>
+<p>Archive unused vendor folders; ensure the winning vendor’s folder contains the final set.</p>
+<h2>6) Quality Gates</h2>
+<p>Vendor pack complete (quote/spec/warranty/service/consumables/HC/MIFU/ESS)</p>
+<p>7 services approved or documented conditions accepted</p>
+<p>Leadership approval recorded; Checklist generated &amp; reviewed</p>
+<p>Funding decision on record; Funding fields updated</p>
+<p>Naming standards applied across links/folders/files/emails</p>
+<p>Budget math checked (subtotals in SPO; tax auto‑calculates)</p>
+<h2>7) Common Pitfalls &amp; How to Avoid Them</h2>
+<p>Missing cost centre department after funding → Look it up in Funding Source List; update ticket.</p>
+<p>Stale quotes → Refresh within 30–60 days of submission/PO.</p>
+<p>Ambiguous justification → Tie to safety, access/throughput, quality, and quantify where possible.</p>
+<p>Hidden install scope → Confirm FMO early (power/data/millwork).</p>
+<p>Biomed service gap → Add vendor PM/warranty coverage; reflect in opex notes.</p>
+<p>Naming drift → Always use CWBMO‑### in subjects, folders, and file names.</p>
+
+    <h2>8) Roles &amp; RACI</h2>
+    <p><strong>Legend:</strong> R = Responsible, A = Accountable, C = Consulted, I = Informed</p>
+    <table class="raci-table">
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>BMO Agent</th>
+                <th>Requestor / Clinic</th>
+                <th>Support Services</th>
+                <th>Leadership</th>
+                <th>Supply Chain / Cap Mgmt / AP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Intake</td><td>R quality</td><td>C clarity</td><td>C if needed</td><td>I</td><td>I</td></tr>
+            <tr><td>Vendor Engagement</td><td>R/A</td><td>I</td><td>I</td><td>I</td><td>I</td></tr>
+            <tr><td>Clinical Approval</td><td>A (trigger/track)</td><td>R approve</td><td>I</td><td>I</td><td>I</td></tr>
+            <tr><td>Support Services</td><td>A (trigger/track)</td><td>I</td><td>R approve</td><td>I</td><td>I</td></tr>
+            <tr><td>Senior Leadership</td><td>A (prep/route)</td><td>I</td><td>I</td><td>R approve</td><td>I</td></tr>
+            <tr><td>Funding</td><td>R/A (booklet)</td><td>I</td><td>I</td><td>C/I</td><td>I</td></tr>
+            <tr><td>Pre‑PO</td><td>R (reqs, coding)</td><td>I</td><td>C (Biomed/FMO)</td><td>I</td><td>A/R (PO)</td></tr>
+            <tr><td>Post‑PO</td><td>A (coord)</td><td>C readiness</td><td>C/R (inspect/install)</td><td>I</td><td>R (receiving)</td></tr>
+            <tr><td>Payment</td><td>A (match/recon)</td><td>I</td><td>I</td><td>I</td><td>R (AP)</td></tr>
+        </tbody>
+    </table>
+    <h2>9) Glossary</h2>
+<p>NURE: New / Upgrade / Replacement / Expansion (request classification)</p>
+<p>ESS: Equipment Specification Summary</p>
+<p>MIFU/IFU: Manufacturer’s Instructions for Use</p>
+<p>BME: Biomedical Engineering</p>
+<p>FMO: Facility Management Office</p>
+<p>GMO: General Management Office</p>
+<p>CI: Clinical Informatics</p>
+<p>IPAC: Infection Prevention &amp; Control</p>
+<p>MED: Medical Equipment Depot</p>
+<p>MDRD: Medical Device Reprocessing Dept</p>
+<p>PDHIS: Provincial Digital Health &amp; Information Systems</p>
+<p>I‑PASS: IMITS new initiative request</p>
+<p>PIA: Privacy Impact Assessment</p>
+<p>STRA: Security Threat &amp; Risk Assessment</p>
+<p>P3: Phase 3 (TACC Building)</p>
+<p>CAPEX: Capital Expense</p>
+<p>OPEX: Operating Expense</p>
+<p>BE: Budget Estimate</p>
+<p>CEP: Capital Equipment Prioritization (meeting and rubric)</p>
+<p>MOH: Ministry of Health</p>
+<p>BCCHF: BC Children’s Hospital Foundation</p>
+<p>BCWF: BC Women’s Foundation</p>
+<p>AG: Annual Grant</p>
+<p>BTL: Below the Line</p>
+<p>RCI: Restricted Capital Investment</p>
+<p>RCG: Restricted Capital Grant</p>
+<p>FY: Fiscal Year</p>
+<p>FYE: Fiscal Year End</p>
+<h2>12) On Boarding Practice</h2>
+<p>Shadow: open 3 completed tickets and retrace each stage using this guide.</p>
+<p>Create a mock vendor engagement email using the template; check the subject/attachments.</p>
+<p>Practice uploading and renaming 5 files to the correct vendor subfolder with Document Types.</p>
+<p>Draft a one‑pager for senior leadership (what/why/cost/funding/impacts) using a real ticket.</p>
+<p>Reconcile a sample invoice to a PO and funding letter (paired exercise with AP).</p>
+<h2>13) Key Links</h2>
+<p>SPO Capital Request Form / Tracker</p>
+<p>SPO Request Checklist / Funding tabs</p>
+<p>Support Services intake forms</p>
+<p>Capital Season Planner</p>
+<p>SP2013 legacy folders (funding letters)</p>
+<p>Financial Signing Register (PeopleSoft)</p>
+</div>
+  </div>
+</main>
+<footer class="site"><div class="container">© 2025 BMO</div></footer>
+<script>
+// Section filter
+document.addEventListener('DOMContentLoaded',function(){
+  const chips = Array.from(document.querySelectorAll('.filterbar .chip'));
+  const cards = Array.from(document.querySelectorAll('.section-card'));
+  chips.forEach(ch=>ch.addEventListener('click',()=>{
+    chips.forEach(c=>c.classList.remove('active'));
+    ch.classList.add('active');
+    const f = ch.getAttribute('data-filter');
+    cards.forEach(card=>{
+      if(f==='all'|| card.getAttribute('data-section')===f){ card.style.display='block'; }
+      else { card.style.display='none'; }
+    });
+    if(f!=='all'){
+      const target = document.querySelector('#s'+f);
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    } else {
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }));
+
+  // Stage subfilter inside section 5
+  const subbars = Array.from(document.querySelectorAll('.subfilter'));
+  subbars.forEach(bar=>{
+    const btns = Array.from(bar.querySelectorAll('button'));
+    const blocks = Array.from(bar.parentElement.querySelectorAll('.stage-block'));
+    btns.forEach(b=>b.addEventListener('click',()=>{
+      btns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      const show = b.getAttribute('data-show');
+      blocks.forEach(bl=>{
+        bl.style.display = (show==='all' || bl.getAttribute('data-stage')===show)?'block':'none';
+      });
+    }));
+  });
+});
+</script>
+<script>
+// Smooth filter bar interactions & active state maintenance
+document.addEventListener('DOMContentLoaded', function(){
+  const chips = Array.from(document.querySelectorAll('.filterbar .chip'));
+  const cards = Array.from(document.querySelectorAll('.section-card'));
+
+  function setActive(f){
+    chips.forEach(c=>c.classList.toggle('active', c.getAttribute('data-filter')===f || (f==='all' && c.getAttribute('data-filter')==='all')));
+  }
+
+  chips.forEach(ch=>ch.addEventListener('click',()=>{
+    const f = ch.getAttribute('data-filter');
+    setActive(f);
+    cards.forEach(card=>{
+      card.style.display = (f==='all' || card.getAttribute('data-section')===f) ? 'block' : 'none';
+    });
+    if(f!=='all'){
+      const target = document.querySelector('#s'+f);
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    } else {
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }));
+
+  // Auto-highlight pill based on scroll
+  const observer = new IntersectionObserver((entries)=>{
+    const visible = entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio - a.intersectionRatio)[0];
+    if(visible){
+      const id = visible.target.getAttribute('data-section');
+      if(id){ setActive(id); }
+    }
+  }, {rootMargin: "-30% 0px -60% 0px", threshold:[0.1,0.25,0.5]});
+
+  cards.forEach(c=>observer.observe(c));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMO Training Hub — Capital Season</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/capital.js"></script>
+  <style>@media print{ header.site, footer.site{display:none} main{padding:0} }</style>
+</head>
+<body>
+  <header class="site">
+  <div class="container nav" role="navigation" aria-label="Primary" style="justify-content:flex-start">
+    <div class="brand" aria-label="Site" style="margin-right:18px">
+      <span class="kicker" style="color:var(--mid)">BMO</span>
+      <strong>Training Hub</strong>
+    </div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink" href="training.html">Training</a>
+      <a class="navlink active" href="capital.html">Capital Season</a>
+      <a class="navlink" href="sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="projects.html">Projects</a>
+      <a class="navlink" href="quiz.html">Quiz</a>
+      <a class="navlink" href="faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+  
+  <main>
+    <div class="container">
+      <h1>Capital Season — Key Stages</h1>
+      <p class="muted"><strong>Request Submission Cut-off:</strong> August 31</p>
+      <div class="stage-chips" id="chips"></div>
+      <div id="stagePanels"></div>
+    </div>
+  
+    
+<script>
+(function(){
+  var body = document.getElementById('stageBody');
+  function show(k){
+    if(window.Capital && typeof window.Capital.show==='function'){
+      window.Capital.show(k);
+      document.querySelectorAll('#stageChips .chip').forEach(function(c){ c.classList.remove('active'); });
+      var el = document.querySelector('#stageChips .chip[data-k="'+k+'"]'); if(el) el.classList.add('active');
+    }
+  }
+  document.querySelectorAll('#stageChips .chip').forEach(function(b){
+    b.addEventListener('click', function(){ show(this.getAttribute('data-k')); });
+  });
+  // initialize
+  show('submission');
+})();
+</script>
+
+
+<script>
+(function stageChipsInit(){
+  function show(k){
+    if(window.Capital && typeof window.Capital.show==='function'){
+      window.Capital.show(k);
+      document.querySelectorAll('#stageChips .chip').forEach(function(c){ c.classList.remove('active'); });
+      var el = document.querySelector('#stageChips .chip[data-k="'+k+'"]'); if(el) el.classList.add('active');
+    }
+  }
+  document.querySelectorAll('#stageChips .chip').forEach(function(btn){
+    btn.addEventListener('click', function(){ show(this.getAttribute('data-k')); });
+  });
+  show('submission');
+})();
+</script>
+
+</main>
+
+  <footer class="site">
+  <div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ &amp; Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/faq.js"></script>
+</head>
+<body>
+  <header class="site">
+  <div class="container nav" role="navigation" aria-label="Primary" style="justify-content:flex-start">
+    <div class="brand" aria-label="Site" style="margin-right:18px">
+      <span class="kicker" style="color:var(--mid)">BMO</span>
+      <strong>Training Hub</strong>
+    </div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink" href="training.html">Training</a>
+      <a class="navlink" href="capital.html">Capital Season</a>
+      <a class="navlink" href="sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="projects.html">Projects</a>
+      <a class="navlink" href="quiz.html">Quiz</a>
+      <a class="navlink active" href="faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+  <main>
+    <div class="container">
+      <h1>FAQ &amp; Contact</h1>
+      
+
+      <section style="margin-top:22px">
+        
+
+
+<section class="section" id="faq-grid">
+  <h2>FAQ</h2>
+  <div class="cards three-col">
+    <article class="card"><h3>How do I request a new capital item?</h3><p>Submit a new entry in SPO’s Request Intake; you’ll receive a CWBMO# with links to Checklist, Engagement, and Documentation.</p></article>
+    <article class="card"><h3>When is an RFP required?</h3><p>At or above competitive thresholds and when best‑value evaluation applies.</p></article>
+    <article class="card"><h3>What does “not on contract” mean?</h3><p>No active agreement; compete or justify exemption.</p></article>
+    <article class="card"><h3>Where can I see project status?</h3><p>Use SPO → Grand View; PO details in PeopleSoft; invoices in Basware.</p></article>
+    <article class="card"><h3>What is Prior‑Year Contingency?</h3><p>Unspent Annual Grant carried forward to buffer shortfalls or urgent needs.</p></article>
+    <article class="card"><h3>How do I split funding across items?</h3><p>Use correct project codes and ePro distribution splits; mirror in SPO mapping.</p></article>
+    <article class="card"><h3>Do trials require extra steps?</h3><p>Yes—Health Canada licensing, trial agreement, Biomed intake, IPAC/MDRD cleaning, and Privacy/IT if data/networking.</p></article>
+    <article class="card"><h3>What if a request is incomplete?</h3><p>It remains in Vetting until required checklist items are provided and uploaded.</p></article>
+    <article class="card"><h3>What does PM mean?</h3><p>Preventive maintenance—scheduled inspections and service to keep equipment safe and reliable.</p></article>
+  </div>
+</section>
+<h2>Contact Us</h2>
+        <div class="card contact-card">
+          <p>For general training questions, send us a note below.</p>
+          <form id="contactForm" id="contactForm" onsubmit="event.preventDefault(); return sendContact(this.name.value, this.email.value, this.message.value)">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+              <input name="name" placeholder="Name" required style="padding:10px; border-radius:10px; border:1px solid rgba(0,0,0,.15)">
+              <input name="email" type="email" placeholder="Email" required style="padding:10px; border-radius:10px; border:1px solid rgba(0,0,0,.15)">
+            </div>
+            <textarea name="message" placeholder="Message" required style="margin-top:10px; width:100%; min-height:120px; padding:10px; border-radius:10px; border:1px solid rgba(0,0,0,.15)"></textarea>
+            <div style="display:flex; justify-content:flex-end; margin-top:8px">
+              <button class="btn primary" type="submit" style="width:180px; justify-content:center">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section style="margin-top:22px">
+        <h2>Quick Q&A</h2>
+        <div class="faq-carousel"><button class="arrow left" id="qPrev" aria-label="Prev">►</button><div class="panel"><div id="qPanel"></div><div class="meter" id="qMeter"></div></div><button class="arrow" id="qNext" aria-label="Next">►</button></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site">
+  <div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div>
+</footer>
+  <script src="assets/js/forms-hooks.js"></script>
+</body>
+</html>

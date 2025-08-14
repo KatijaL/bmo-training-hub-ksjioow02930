@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMO Training Hub — Quizzes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/quiz.js"></script>
+</head>
+<body>
+  <header class="site">
+  <div class="container nav" role="navigation" aria-label="Primary" style="justify-content:flex-start">
+    <div class="brand" aria-label="Site" style="margin-right:18px">
+      <span class="kicker" style="color:var(--mid)">BMO</span>
+      <strong>Training Hub</strong>
+    </div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink" href="training.html">Training</a>
+      <a class="navlink" href="capital.html">Capital Season</a>
+      <a class="navlink" href="sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="projects.html">Projects</a>
+      <a class="navlink active" href="quiz.html">Quiz</a>
+      <a class="navlink" href="faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+  <main>
+  <div class="container">
+    <h1 id="quizTitle" style="margin-bottom:10px"></h1>
+  </div>
+    <div class="container">
+      <h1>New‑Hire Quizzes</h1>
+      <p class="muted">Choose a module to start. Questions appear one by one. Your latest score is saved on this device.</p>
+
+      <div class="cards"><article class="card"><h3>Capital Process Training</h3><p class="muted">20 questions</p><a class="btn primary" href="quiz/capital-process-training.html">Start</a></article><article class="card"><h3>SPO System Training</h3><p class="muted">20 questions</p><a class="btn primary" href="quiz/spo-system-training.html">Start</a></article><article class="card"><h3>Pre‑PO Process Training</h3><p class="muted">20 questions</p><a class="btn primary" href="quiz/pre-po-process-training.html">Start</a></article><article class="card"><h3>Post‑PO Process Training</h3><p class="muted">20 questions</p><a class="btn primary" href="quiz/post-po-process-training.html">Start</a></article><article class="card"><h3>Payment & Reconciliation</h3><p class="muted">20 questions</p><a class="btn primary" href="quiz/payment-reconciliation.html">Start</a></article><article class="card"><h3>Funding Guide (KDZ/COZ/LDZ)</h3><p class="muted">20 questions</p><a class="btn primary" href="quiz/funding-guide-kdz-coz-ldz-.html">Start</a></article></div>
+
+      <section id="quizRunner" style="margin-top:18px; display:none">
+        <div class="card">
+          <div id="qHeader"><strong>Module:</strong> <span id="modName"></span> • <strong>Question</strong> <span id="qNum"></span>/<span id="qTotal"></span></div>
+          <div id="qBody" style="margin-top:10px"></div>
+          <div style="display:flex; gap:8px; margin-top:12px">
+            <button class="btn" id="prevBtn" disabled>Back</button>
+            <button class="btn" id="nextBtn">Next</button>
+            <button class="btn" id="submitBtn" style="margin-left:auto; display:none">Submit</button>
+          </div>
+        </div>
+        <div style="margin-top:10px"><a class="btn" href="quiz.html">Back</a></div>
+          <div class="card" id="scoreCard" style="display:none; margin-top:12px">
+          <h3>Results</h3>
+          <p id="scoreText"></p>
+          <a class="btn" id="emailBtn" href="#">Email results</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site">
+  <div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div>
+</footer>
+  <script src="assets/js/forms-hooks.js"></script>
+</body>
+</html>

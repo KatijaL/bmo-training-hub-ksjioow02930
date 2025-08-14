@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Capital Training — Overview of the Season — Content</title>
+<style>
+.layout{display:grid;grid-template-columns:280px 1fr;gap:16px}
+@media (max-width:980px){ .layout{grid-template-columns:1fr} .sidenav{position:fixed;inset:0 0 auto 0;background:#fff;transform:translateY(-100%);transition:.2s;padding:10px;border-bottom:1px solid rgba(0,0,0,.08);z-index:60} .sidenav.open{transform:translateY(0)} .openbtn{display:inline-block} }
+.sidenav{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:10px;position:sticky;top:70px;height:calc(100vh - 90px);overflow:auto}
+.openbtn{display:none;margin-bottom:10px}
+.sidenav ul{list-style:none;padding:0;margin:0}
+.navlink{display:block;width:100%;text-align:left;padding:.55rem .6rem;border-radius:8px;border:1px solid transparent;background:transparent;cursor:pointer}
+.navlink.active, .navlink:hover{background:#f3f4f6;border-color:#e5e7eb}
+.sublist{display:none;margin:.25rem 0 .5rem 1rem;}
+.sublist .sublink{padding:.35rem .45rem;margin:.15rem 0;border-radius:6px;border:1px solid transparent;background:transparent;cursor:pointer}
+.sublist .sublink:hover{background:#f3f4f6}
+.panel{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:14px;background:#fff}
+.acc summary{cursor:pointer;font-weight:600}
+.acc[open] summary{background:#f9fafb;padding:.3rem .4rem;border-radius:8px}
+
+/* Readability callouts (neutral palette) */
+.callout{padding:.6rem .8rem;margin:.6rem 0;border-radius:8px;border:1px solid rgba(0,0,0,.08);background:#f9fafb}
+.callout.goal{background:#f5faf7}
+.callout.steps{background:#f7f9ff}
+.callout.quality{background:#fffaf2}
+.callout.tips{background:#f6fbff;font-style:italic}
+.cycle{border:1px dashed rgba(0,0,0,.15);border-radius:10px;padding:.6rem .8rem;margin:.5rem 0;background:#ffffff}
+
+
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.prevnext a{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:.6rem .8rem;background:#fff}
+.prevnext small{color:#6b7280}
+
+
+.navlink .caret{display:inline-block;margin-right:.25rem;border:6px solid transparent;border-left-color:var(--brand-muted);transform:rotate(0deg);transition:transform .15s ease}
+.navlink.active .caret{transform:rotate(90deg)}
+
+
+.cycle-steps{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0}
+.cycle-steps .node{background:#F0EBD8;border:1px solid #748CAB;border-radius:999px;padding:.35rem .6rem;position:relative}
+.cycle-steps .node::after{content:"→";margin-left:.5rem;margin-right:.1rem;color:#3E5C76}
+.cycle-steps .node:last-child::after{content:""}
+
+
+.cycle-loop{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-svg{width:100%;height:120px;display:block}
+.cycle-nodes{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:-70px;padding:0 24px}
+.cycle-nodes span{background:#F0EBD8;border:1px solid #748CAB;border-radius:999px;padding:.25rem .6rem;white-space:nowrap;font-weight:600;color:#0D1321}
+@media (max-width: 640px){ .cycle-nodes{margin-top:-60px;gap:6px} .cycle-nodes span{font-size:.9rem} }
+
+
+.cycle-wrap{border:1px solid #748CAB;border-radius:14px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-row{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.cycle-row.row1{justify-content:flex-start}
+.cycle-row.row2{justify-content:flex-end;flex-direction:row-reverse}
+.cycle-row:before,.cycle-row:after{content:"";display:block;height:12px;border-top:2px solid #748CAB;border-bottom:2px solid transparent;border-radius:20px;width:12px}
+.cycle-row.row1:after{flex:1;border-top-color:#748CAB}
+.cycle-row.row2:before{flex:1;border-top-color:#748CAB}
+.chip{background:#F0EBD8;color:#0D1321;border:2px solid #748CAB;border-radius:999px;padding:.3rem .7rem;font-weight:700;white-space:nowrap;position:relative}
+.chip:after{content:"→";margin-left:.4rem;color:#3E5C76}
+.row2 .chip:after{content:"←";margin-left:.4rem}
+
+
+.topic-card{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:.6rem .75rem;margin:.6rem 0}
+.topic-card ul{margin:.35rem 0 .1rem 1.1rem}
+
+
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.pn{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid #748CAB;border-radius:10px;padding:.6rem .8rem;background:#fff;color:#0D1321}
+.pn small{color:#748CAB;font-size:.85em}
+
+</style>
+<style>
+/* Font alignment across pages */
+html, body { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:#0D1321; }
+h1, h2, h3, h4 { font-family: 'Abril Fatface', Georgia, serif; color:#0D1321; letter-spacing:.2px; }
+
+:root{
+  --ink:#0D1321;
+  --brand-dark:#1D2D44;
+  --brand-mid:#3E5C76;
+  --brand-muted:#748CAB;
+  --bg-soft:#F0EBD8;
+}
+/* buttons & links adopt palette */
+a.btn { background: var(--brand-mid); color:#F0EBD8; border:1px solid var(--brand-dark); }
+a.btn:hover{ background: var(--brand-dark); }
+/* course list & panels */
+.course-item, .panel{ border:1px solid var(--brand-muted); background:#fff; }
+.badge{ background: var(--brand-mid); color:#F0EBD8; }
+.sidenav{ border-color: var(--brand-muted); }
+.navlink.active, .navlink:hover{ background: var(--bg-soft); border-color: var(--brand-muted); }
+.sublist .sublink:hover{ background: var(--bg-soft); }
+/* callouts (use only palette) */
+.callout{ border:1px solid var(--brand-muted); background:#F0EBD8; }
+.callout.goal{ background:#F0EBD8; }
+.callout.steps{ background:#F0EBD8; }
+.callout.quality{ background:#F0EBD8; }
+.callout.tips{ background:#F0EBD8; font-style:italic; }
+/* cycle */
+.cycle{ border:2px dashed var(--brand-muted); background:#fff; color:var(--ink); }
+
+.navlink .caret{display:inline-block;margin-right:.25rem;border:6px solid transparent;border-left-color:var(--brand-muted);transform:rotate(0deg);transition:transform .15s ease}
+.navlink.active .caret{transform:rotate(90deg)}
+
+
+.cycle-steps{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0}
+.cycle-steps .node{background:#F0EBD8;border:1px solid #748CAB;border-radius:999px;padding:.35rem .6rem;position:relative}
+.cycle-steps .node::after{content:"→";margin-left:.5rem;margin-right:.1rem;color:#3E5C76}
+.cycle-steps .node:last-child::after{content:""}
+
+
+.cycle-loop{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-svg{width:100%;height:120px;display:block}
+.cycle-nodes{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:-70px;padding:0 24px}
+.cycle-nodes span{background:#F0EBD8;border:1px solid #748CAB;border-radius:999px;padding:.25rem .6rem;white-space:nowrap;font-weight:600;color:#0D1321}
+@media (max-width: 640px){ .cycle-nodes{margin-top:-60px;gap:6px} .cycle-nodes span{font-size:.9rem} }
+
+
+.cycle-wrap{border:1px solid #748CAB;border-radius:14px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-row{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.cycle-row.row1{justify-content:flex-start}
+.cycle-row.row2{justify-content:flex-end;flex-direction:row-reverse}
+.cycle-row:before,.cycle-row:after{content:"";display:block;height:12px;border-top:2px solid #748CAB;border-bottom:2px solid transparent;border-radius:20px;width:12px}
+.cycle-row.row1:after{flex:1;border-top-color:#748CAB}
+.cycle-row.row2:before{flex:1;border-top-color:#748CAB}
+.chip{background:#F0EBD8;color:#0D1321;border:2px solid #748CAB;border-radius:999px;padding:.3rem .7rem;font-weight:700;white-space:nowrap;position:relative}
+.chip:after{content:"→";margin-left:.4rem;color:#3E5C76}
+.row2 .chip:after{content:"←";margin-left:.4rem}
+
+
+.topic-card{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:.6rem .75rem;margin:.6rem 0}
+.topic-card ul{margin:.35rem 0 .1rem 1.1rem}
+
+
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.pn{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid #748CAB;border-radius:10px;padding:.6rem .8rem;background:#fff;color:#0D1321}
+.pn small{color:#748CAB;font-size:.85em}
+
+</style>
+<style>
+/* Fonts */
+html, body { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:#0D1321; }
+h1, h2, h3, h4 { font-family: 'Abril Fatface', Georgia, serif; color:#0D1321; letter-spacing:.2px; }
+:root{
+  --ink:#0D1321;
+  --brand-dark:#1D2D44;
+  --brand-mid:#3E5C76;
+  --brand-muted:#748CAB;
+  --bg-soft:#F0EBD8;
+}
+a.btn { background: var(--brand-mid); color:#F0EBD8; border:1px solid var(--brand-dark); }
+a.btn:hover{ background: var(--brand-dark); }
+.course-item, .panel{ border:1px solid var(--brand-muted); background:#fff; }
+.badge{ background: var(--brand-mid); color:#F0EBD8; }
+.sidenav{ border-color: var(--brand-muted); }
+.navlink.active, .navlink:hover{ background: var(--bg-soft); border-color: var(--brand-muted); }
+.sublist .sublink:hover{ background: var(--bg-soft); }
+.callout{ border:1px solid var(--brand-muted); background:#F0EBD8; }
+.cycle{ border:2px dashed var(--brand-muted); background:#fff; color:var(--ink); padding:.6rem .8rem; border-radius:10px; }
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.prevnext a{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid var(--brand-muted);border-radius:10px;padding:.6rem .8rem;background:#fff}
+.prevnext small{color:#748CAB}
+/* RACI table styling to match screenshot */
+.raci-wrap{background:#F0EBD8;padding:10px;border-radius:14px;border:1px solid var(--brand-muted)}
+.raci-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--brand-muted);border-radius:12px;overflow:hidden;background:#fff}
+.raci-table th{background:#fff; font-weight:700}
+.raci-table th, .raci-table td{padding:.65rem .75rem;border-bottom:1px solid #e6e1d4;border-right:1px solid #e6e1d4}
+.raci-table th:last-child, .raci-table td:last-child{border-right:0}
+.raci-table tr:nth-child(odd) td{background:#fbfaf6}
+.legend{margin:.4rem 0 .8rem 0}
+.legend strong{font-weight:700}
+/* Sidebar toggle caret appears only when section has children */
+.navlink[data-has-children="true"] .caret{display:inline-block;margin-right:.25rem;border:6px solid transparent;border-left-color:var(--brand-muted);transform:rotate(0deg);transition:transform .15s ease}
+.navlink[data-has-children="true"].expanded .caret{transform:rotate(90deg)}
+
+.cycle-steps{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0}
+.cycle-steps .node{background:#F0EBD8;border:1px solid #748CAB;border-radius:999px;padding:.35rem .6rem;position:relative}
+.cycle-steps .node::after{content:"→";margin-left:.5rem;margin-right:.1rem;color:#3E5C76}
+.cycle-steps .node:last-child::after{content:""}
+
+
+.cycle-loop{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-svg{width:100%;height:120px;display:block}
+.cycle-nodes{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:-70px;padding:0 24px}
+.cycle-nodes span{background:#F0EBD8;border:1px solid #748CAB;border-radius:999px;padding:.25rem .6rem;white-space:nowrap;font-weight:600;color:#0D1321}
+@media (max-width: 640px){ .cycle-nodes{margin-top:-60px;gap:6px} .cycle-nodes span{font-size:.9rem} }
+
+
+.cycle-wrap{border:1px solid #748CAB;border-radius:14px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-row{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.cycle-row.row1{justify-content:flex-start}
+.cycle-row.row2{justify-content:flex-end;flex-direction:row-reverse}
+.cycle-row:before,.cycle-row:after{content:"";display:block;height:12px;border-top:2px solid #748CAB;border-bottom:2px solid transparent;border-radius:20px;width:12px}
+.cycle-row.row1:after{flex:1;border-top-color:#748CAB}
+.cycle-row.row2:before{flex:1;border-top-color:#748CAB}
+.chip{background:#F0EBD8;color:#0D1321;border:2px solid #748CAB;border-radius:999px;padding:.3rem .7rem;font-weight:700;white-space:nowrap;position:relative}
+.chip:after{content:"→";margin-left:.4rem;color:#3E5C76}
+.row2 .chip:after{content:"←";margin-left:.4rem}
+
+
+.topic-card{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:.6rem .75rem;margin:.6rem 0}
+.topic-card ul{margin:.35rem 0 .1rem 1.1rem}
+
+
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.pn{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid #748CAB;border-radius:10px;padding:.6rem .8rem;background:#fff;color:#0D1321}
+.pn small{color:#748CAB;font-size:.85em}
+
+</style>
+<style>
+/* Unify 5) visuals: neutral panels (no yellow cards) */
+#panel-5 .callout, [id^="panel-5-"] .callout{ background:#fff; border:1px solid #748CAB; }
+
+.cycle-wrap{border:1px solid #748CAB;border-radius:14px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-row{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.cycle-row.row1{justify-content:flex-start}
+.cycle-row.row2{justify-content:flex-end;flex-direction:row-reverse}
+.cycle-row:before,.cycle-row:after{content:"";display:block;height:12px;border-top:2px solid #748CAB;border-bottom:2px solid transparent;border-radius:20px;width:12px}
+.cycle-row.row1:after{flex:1;border-top-color:#748CAB}
+.cycle-row.row2:before{flex:1;border-top-color:#748CAB}
+.chip{background:#F0EBD8;color:#0D1321;border:2px solid #748CAB;border-radius:999px;padding:.3rem .7rem;font-weight:700;white-space:nowrap;position:relative}
+.chip:after{content:"→";margin-left:.4rem;color:#3E5C76}
+.row2 .chip:after{content:"←";margin-left:.4rem}
+
+
+.topic-card{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:.6rem .75rem;margin:.6rem 0}
+.topic-card ul{margin:.35rem 0 .1rem 1.1rem}
+
+
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.pn{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid #748CAB;border-radius:10px;padding:.6rem .8rem;background:#fff;color:#0D1321}
+.pn small{color:#748CAB;font-size:.85em}
+
+</style>
+
+<style>
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.prevnext .pn{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid #748CAB;border-radius:10px;padding:.6rem .8rem;background:#fff;color:#0D1321}
+.prevnext small{color:#748CAB;font-size:.85em}
+
+.cycle-wrap{border:1px solid #748CAB;border-radius:14px;background:#fff;padding:10px;margin:.6rem 0}
+.cycle-row{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.cycle-row.row1{justify-content:flex-start}
+.cycle-row.row2{justify-content:flex-end;flex-direction:row-reverse}
+.cycle-row:before,.cycle-row:after{content:"";display:block;height:12px;border-top:2px solid #748CAB;border-bottom:2px solid transparent;border-radius:20px;width:12px}
+.cycle-row.row1:after{flex:1;border-top-color:#748CAB}
+.cycle-row.row2:before{flex:1;border-top-color:#748CAB}
+.chip{background:#F0EBD8;color:#0D1321;border:2px solid #748CAB;border-radius:999px;padding:.3rem .7rem;font-weight:700;white-space:nowrap;position:relative}
+.chip:after{content:"→";margin-left:.4rem;color:#3E5C76}
+.row2 .chip:after{content:"←";margin-left:.4rem}
+
+
+.topic-card{border:1px solid #748CAB;border-radius:12px;background:#fff;padding:.6rem .75rem;margin:.6rem 0}
+.topic-card ul{margin:.35rem 0 .1rem 1.1rem}
+
+
+.prevnext{display:flex;justify-content:space-between;align-items:flex-start;margin:18px 0}
+.pn{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid #748CAB;border-radius:10px;padding:.6rem .8rem;background:#fff;color:#0D1321}
+.pn small{color:#748CAB;font-size:.85em}
+
+</style>
+
+</head><body>
+<header class="site">
+  <div class="container nav" role="navigation" aria-label="Primary" style="justify-content:flex-start">
+    <div class="brand" aria-label="Site" style="margin-right:18px">
+      <span class="kicker" style="color:var(--mid)">BMO</span>
+      <strong>Training Hub</strong>
+    </div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="../index.html">Home</a>
+      <a class="navlink" href="../training.html" class="active" aria-current="page">Training</a>
+      <a class="navlink" href="../capital.html">Capital Season</a>
+      <a class="navlink" href="../sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="../projects.html">Projects</a>
+      <a class="navlink" href="../quiz.html">Quiz</a>
+      <a class="navlink" href="../faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+<main><div class="container">
+<a class="btn" href="capital-overview-course.html">← Back to Capital Training — Overview of the Season</a>
+<h1 style="margin-top:12px">Capital Training — Overview of the Season</h1>
+<button class="btn openbtn" onclick="document.querySelector('.sidenav').classList.toggle('open')">Toggle contents</button>
+<div class="layout">
+<nav class="sidenav" aria-label="Course contents"><ul><li><button class="navlink" data-section="1">1) Purpose &amp; Outcomes</button></li><li><button class="navlink" data-section="2">2) Request Types &amp; Classification</button></li><li><button class="navlink" data-section="3">3) Two Typical Intake Scenarios</button></li><li><button class="navlink" data-section="4">4) Common Documentation Types</button></li><li><button class="navlink" data-section="5" data-has-children="true">5) Vetting Process</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-1">5.1 Stage 1 — Request Intake</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-2">5.2 Stage 2 — Vendor Engagement</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-3">5.3 Stage 3 — Clinical Approval</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-4">5.4 Stage 4 — Support Services Engagement (7 services)</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-5">5.5 Stage 5 — Senior Leadership Approval</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-6">5.6 Stage 6 — Funding Submission &amp; Approval</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-7">5.7 Stage 7 — Pre‑PO (Procurement Initiation)</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-8">5.8 Stage 8 — Post‑PO (Delivery, Install, In‑Service)</button></li><li style="margin-left:1rem"><button class="navlink" data-section="5-9">5.9 Stage 9 — Invoice &amp; Reconciliation</button></li><li><button class="navlink" data-section="6">6) Quality Gates</button></li><li><button class="navlink" data-section="7">7) Common Pitfalls &amp; How to Avoid Them</button></li><li><button class="navlink" data-section="8">8) Roles &amp; RACI</button></li><li><button class="navlink" data-section="9">9) Glossary</button></li><li><button class="navlink" data-section="10">10) On Boarding Practice</button></li><li><button class="navlink" data-section="11">11) Key Links</button></li></ul></nav>
+<div class="content"><section class="panel" id="panel-1"> <h2>1) Purpose &amp; Outcomes</h2><div class="cycle">idea → approved idea → submitted request → vetted request → funded → purchased → installed → in service → paid → new idea</div><p><strong>The capital request cycle takes a request from:</strong></p>
+<div class="cycle-steps"><span class="node">idea</span><span class="node">approved idea</span><span class="node">submitted request</span><span class="node">vetted request</span><span class="node">funded</span><span class="node">purchased</span><span class="node">installed</span><span class="node">in service</span><span class="node">paid</span><span class="node">new idea</span></div>
+<p><strong>Throughout this process we ensure:</strong></p>
+<div class="topic-card"><p><strong>Clinical readiness &amp; safety:</strong></p><ul><li>equipment is supportable (Biomed), installable (FMO), cleanable (IPAC/MDRD), and integration operatable (PDHIS/CI).</li></ul></div>
+<div class="topic-card"><p><strong>Funding compliance:</strong></p><ul><li>correct source (Ministry of Health, Children’s Foundation, Women’s Foundation), with clear approvals and documentation.</li></ul></div>
+<div class="topic-card"><p><strong>Procurement integrity:</strong></p><ul><li>policy‑aligned quotes, competitive considerations, accurate coding, and comprehensive record management.</li></ul></div>
+<div class="topic-card"><p><strong>Operational preparation &amp; continuity:</strong></p><ul><li>deficiency management, inspection, in‑service, invoice, and reconciliation with complete handover and operations transition.</li><li>Capital season cadence: main cycle runs roughly Aug 31 → March (+2) with funding approval releases in April (+1) and completed procurement in March (+2).</li></ul></div><div class="prevnext"><span></span><span></span></div></section><section class="panel" id="panel-2"> <h2>2) Request Types &amp; Classification</h2><p><strong>1. Minor request</strong></p>
+<p>Equipment unit price valued less than $10,000</p>
+<div class="topic-card"><p><strong>Exception:</strong></p><ul><li>probes, implants, and instruments valued greater than $10,000</li><li>Software, licenses, and Saas products valued greater than $10,000</li></ul></div>
+<p><strong>2. Capital request</strong></p>
+<p>Equipment valued at $10,000 per unit or greater</p>
+<p>Individual units of IMIT equipment valued at $10,000 per unit or greater</p>
+<p><strong>3. Capital project (meets ≥3 items below)</strong></p>
+<p>≥5 vendors / multiple product lines to compare</p>
+<p>IMITS/ database component (requires an SDP &amp; technical PM)</p>
+<p>Renovation scope (power, data, millwork)</p>
+<p>Competitive bid (RFP or formal bid) required before PO</p>
+<p>Multiple/ Sitewide trials to select the right model</p>
+<p>Multi‑year service/ extended warranty/ case support to be managed</p>
+<p>Multiple consumables/SKUs needing direct purchasing &amp; inventory</p>
+<p>Business case required for approval</p>
+<p>Total cost &gt; $1M</p>
+<p>First/ only system in BC</p>
+<p><em>Tip: When in doubt, treat as a capital request and escalate to your Project Advisor for project designation.</em></p></section><section class="panel" id="panel-3"> <h2>3) Two Typical Intake Scenarios</h2><p><strong>A. Manually generated by BMO</strong></p>
+<p>Triggered by Biomed high‑risk database or strategic need.</p>
+<p>Use Cost Centre Number = “Undetermined” during data entry.</p>
+<p>Requires an extra Request Initiation step in SPO.</p>
+<p><strong>B. Clinically submitted (via SPO Capital Request Form)</strong></p>
+<div class="topic-card"><p><strong>Requestor would pre‑populated fields:</strong></p><ul><li>site, department, request type, NURE, equipment model, quantity, vendor, storage, consumables, contact, etc.</li><li>Agent will verify, complete gaps, and drive approvals.</li></ul></div></section><section class="panel" id="panel-4"> <h2>4) Common Documentation Types</h2><div class="topic-card"><p><strong>Vendor package:</strong></p><ul><li>Quote(s), brochure and specs</li><li>Warranty/PM/coverage years</li><li>Consumables list &amp; costs</li><li>Health Canada certificate</li><li>MIFU/IFU</li><li>ESS</li></ul></div>
+<div class="topic-card"><p><strong>Approvals &amp; forms:</strong></p><ul><li>Requestor approval</li><li>7 Support Services approvals</li><li>Senior Leadership approval</li></ul></div>
+<div class="topic-card"><p><strong>As needed (IT):</strong></p><ul><li>New Initiative Request (I-PASS)</li><li>Privacy Review (PIA)</li><li>Security Threat/Risk Assessment (STRA)</li></ul></div>
+<div class="topic-card"><p><strong>As needed (Reno):</strong></p><ul><li>Facility Intake Request (1553 BE)</li><li>Minor Works (MW)</li></ul></div>
+<p><strong>Naming &amp; subject convention:</strong></p>
+<div class="topic-card"><p><strong>Ticket links:</strong></p><ul><li>CWBMO-### Documentation</li><li>CWBMO-### Comment and Upload</li><li>CWBMO-### Information Intake</li><li>Folder: CWBMO-### [Request Title]</li><li>Files: CWBMO-### [Title] [Vendor Model] [Doc Type]</li><li>Vendor email subject: [Hospital] CWBMO-### – Inquiry for Supporting Documentation</li></ul></div></section><section class="panel" id="panel-5"> <h2>5) Vetting Process</h2></section><section class="panel" id="panel-5-1"> <h2>5.1 Stage 1 — Request Intake</h2><p><div class="callout goal">Goal: Capture a complete, triageable request with the right descriptors and early risk flags.</p>
+<p>Your checks</p>
+<p>Request Type (Minor / Capital / Project)</p>
+<p>NURE (New / Upgrade / Replacement / Expansion)</p>
+<p>Clinical rationale &amp; patient impact (from Request Description and Justification)</p>
+<p>Equipment details including make/model, qty, options, storage location, needed consumables (usually 6‑month estimate unless clinic specifies otherwise)</p>
+<p>Quote recency &amp; validity; price math</p>
+<p>Contact details &amp; department/cost centre context</p>
+<p>SPO data entry tips</p>
+<p>Enter subtotal (before tax); SPO auto‑calculates tax.</p>
+<p>Use the pre‑discount field where present; document discounts in notes/attachments.</p>
+<p>Use Request Comment &amp; Upload (left menu) to leave yourself dated follow‑ups.</p>
+<p></div><div class="callout quality">Decision gates</p>
+<p>If core info is missing, set status to On Hold and email the requestor with a clear checklist of gaps.</p></div></section><section class="panel" id="panel-5-2"> <h2>5.2 Stage 2 — Vendor Engagement</h2><p><div class="callout goal">Goal: Obtain a complete vendor package for assessment and approvals.</p>
+<p></div><div class="callout steps">Steps</p>
+<p>Copy the latest Vendor Engagement Email Template (do not overwrite the master) and fill placeholders.</p>
+<p>Attach ESS (if required). Use naming subject standard.</p>
+<p>Change SPO Status → Vendor Engagement; log date and any follow‑ups.</p>
+<div class="topic-card"><p><strong>On receipt, validate:</strong></p><ul><li>item numbers</li><li>configurations</li><li>warranty terms (e.g., 1‑yr warranty + 7‑yr service)</li><li>install/in‑service scope</li><li>lead time</li><li>training</li><li>trade‑ins</li><li>consumables</li><li>MIFU/IFU</li><li>Health Canada</li><li>Upload docs to Documentation. Apply naming convention and Document Type. For multi‑vendor scenarios, create a vendor‑named subfolder. Archive losing vendor once a finalist is confirmed.</li><li>No advancement until the vendor package is complete enough for support services to review.</li><li>Follow‑up cadence</li><li>First request → wait 3–5 business days → polite reminder → escalate to alt contact / sales manager if no reply by day 10.</li></ul></div></div></section><section class="panel" id="panel-5-3"> <h2>5.3 Stage 3 — Clinical Approval</h2><p><div class="callout goal">Goal: Confirm the request reflects the clinical need and chosen configuration.</p>
+<p></div><div class="callout steps">Steps</p>
+<p>Flip status to Requested – Clinical Approval (SPO auto‑emails the requestor/clinical lead a short approval form).</p>
+<p>Monitor the Request Engagement tab; respond to comments; adjust ticket details and documentation if clinicians request changes.</p>
+<p>Record outcome: Approved/Rejected – Clinical.</p>
+<p></div><div class="callout tips">Notes</p>
+<p>For trials: summarize outcomes (fit, usability, image quality, workflow). Attach trial notes in Documentation.</p>
+<p>For fleets: ensure model/qty and deployment plan are explicit.</p></div></section><section class="panel" id="panel-5-4"> <h2>5.4 Stage 4 — Support Services Engagement (7 services)</h2><p><div class="callout goal">Goal: Ensure feasibility, safety, and supportability across C&amp;W.</p>
+<p>Trigger</p>
+<div class="topic-card"><p><strong>Set status to Requested – Support Services (SPO sends to all seven):</strong></p><ul><li>Biomed – serviceability, inspection, PM ownership</li><li>FMO – power, data, space, renovations</li><li>Clinical Informatics / PDHIS – network, licensing, VMs/servers, interface</li><li>IPAC – cleaning/disinfection/sterilization suitability</li><li>MDRD – reprocessing needs (if applicable)</li><li>MED – storage/loaner logistics</li><li>Working the queue</li><li>Check/respond to comments in Request Engagement and Request Comment &amp; Upload.</li></ul></div>
+<div class="topic-card"><p><strong>If a service requests changes (e.g., Biomed cannot service):</strong></p><ul><li>Obtain vendor service contract/PM coverage and updated quote.</li><li>Document the change and re‑circulate if it impacts other services (e.g., FMO for install power).</li><li>Reminder cadence</li><li>Use SPO’s Agent Reminders (up to ×5). Typical rhythm: day 3, 6, 9, 12, 15.</li><li>If still pending, escalate to service lead with a concise summary and blockers.</li><li>Proceed only when all required services are Approved (or a documented, endorsed condition is noted).</li></ul></div></div></section><section class="panel" id="panel-5-5"> <h2>5.5 Stage 5 — Senior Leadership Approval</h2><p><div class="callout goal">Goal: Confirm program priority and operational impact.</p>
+<p></div><div class="callout steps">Steps</p>
+<p>Identify approver via Org Chart; populate Director/MDH Approver field in SPO.</p>
+<p>Obtain approval. If requested, attach a 1‑page summary (what/why/cost/funding path/impacts).</p>
+<p>In the ticket, go to Function Tab → Upload to Checklist to generate a Request Checklist entry.</p>
+<p>In Request Checklist: validate NURE (cross‑check past tickets/biomed DB), enter reviewer name, leave Director Review Date blank if not needed, and Request Review.</p>
+<p>Address reviewer comments and re‑submit if asked.</p>
+<p></div><div class="callout quality">Quality gate</p>
+<p>Leadership approval + checklist entry completed.</p></div></section><section class="panel" id="panel-5-6"> <h2>5.6 Stage 6 — Funding Submission &amp; Approval</h2><p><div class="callout goal">Goal: Match the request to the best funding source and secure approvals.</p>
+<p>Actions</p>
+<p>Prepare the Funding Booklet entry (short description, quantity, price basis, clinical impact, support status).</p>
+<p>Track deadlines in Capital Season Planner.</p>
+<div class="topic-card"><p><strong>Understand source behavior:</strong></p><ul><li>Annual Grant / Guaranteed – typically Notional approval in Jan; Actual in Apr.</li><li>Foundation Letters – arrive post‑donation; file in Documentation and update the Funding tab.</li><li>MoH/RCI/IMITS – may require additional business case/IPASS materials.</li><li>A written funding decision exists in the record (letter, email, notional/actual note) and the Funding fields are updated.</li></ul></div></div></section><section class="panel" id="panel-5-7"> <h2>5.7 Stage 7 — Pre‑PO (Procurement Initiation)</h2><p><div class="callout goal">Goal: Convert the funded, approved request into a clean PO.</p>
+<p>Checklist</p>
+<p>Final vendor quote (right config/qty; install, training, freight; warranty/service lines clear)</p>
+<p>Confirm Biomed service model; FMO scope &amp; costs known if applicable</p>
+<p>Requisition(s) drafted (capital/ePro), coded correctly; route for approvals per Financial Signing Register</p>
+<p>Coordinate with Capital Management for capital coding and with Supply Chain for PO issuance</p>
+<p>Confirm vendor lead time and delivery plan; add expected dates to tracker</p>
+<p>Common adds</p>
+<p>Extended warranty years, PM coverage, and any required accessories.</p></div></section><section class="panel" id="panel-5-8"> <h2>5.8 Stage 8 — Post‑PO (Delivery, Install, In‑Service)</h2><p><div class="callout goal">Goal: Receive, inspect, install, and train users without surprises.</p>
+<p></div><div class="callout steps">Steps</p>
+<p>Track shipments; verify all line items on arrival.</p>
+<p>Arrange inspection (Biomed) and site‑readiness (FMO) as needed.</p>
+<p>Coordinate vendor install and in‑service training with the clinical area.</p>
+<p>Log any deficiencies/change orders; resolve promptly and document.</p>
+<p></div><div class="callout quality">Quality gate</p>
+<p>Equipment in place, passes inspection, and end users trained (attendance or confirmation captured).</p></div></section><section class="panel" id="panel-5-9"> <h2>5.9 Stage 9 — Invoice &amp; Reconciliation</h2><p><div class="callout goal">Goal: Pay accurately and close the loop with funding.</p>
+<p></div><div class="callout steps">Steps</p>
+<p>Collect invoices (from vendor/AP/DocuShare) and match to PO lines.</p>
+<p>Resolve mismatches (qty/price/freight) with vendor &amp; Supply Chain.</p>
+<p>Approve for payment; ensure cost hits the correct funding source.</p>
+<p>Reconcile against Funding Letter or approved allocation; document any variance/savings.</p>
+<p>Archive unused vendor folders; ensure the winning vendor’s folder contains the final set.</p></div></section><section class="panel" id="panel-6"> <h2>6) Quality Gates</h2><p>Vendor pack complete (quote/spec/warranty/service/consumables/HC/MIFU/ESS)</p>
+<p>7 services approved or documented conditions accepted</p>
+<p>Leadership approval recorded; Checklist generated &amp; reviewed</p>
+<p>Funding decision on record; Funding fields updated</p>
+<p>Naming standards applied across links/folders/files/emails</p>
+<p>Budget math checked (subtotals in SPO; tax auto‑calculates)</p></section><section class="panel" id="panel-7"> <h2>7) Common Pitfalls &amp; How to Avoid Them</h2><p>Missing cost centre department after funding → Look it up in Funding Source List; update ticket.</p>
+<p>Stale quotes → Refresh within 30–60 days of submission/PO.</p>
+<p>Ambiguous justification → Tie to safety, access/throughput, quality, and quantify where possible.</p>
+<p>Hidden install scope → Confirm FMO early (power/data/millwork).</p>
+<p>Biomed service gap → Add vendor PM/warranty coverage; reflect in opex notes.</p>
+<p>Naming drift → Always use CWBMO‑### in subjects, folders, and file names.</p></section>
+<section class="panel" id="panel-8"><h2>8) Roles &amp; RACI</h2>
+<div class="legend"><strong>Legend:</strong> R = Responsible, A = Accountable, C = Consulted, I = Informed</div>
+<div class="raci-wrap">
+<table class="raci-table">
+<thead>
+<tr>
+<th>Stage</th><th>BMO Agent</th><th>Requestor / Clinic</th><th>Support Services</th><th>Leadership</th><th>Supply Chain / Cap Mgmt / AP</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Intake</td><td>R quality</td><td>C clarity</td><td>C if needed</td><td>I</td><td>I</td></tr>
+<tr><td>Vendor Engagement</td><td>R/A</td><td>I</td><td>I</td><td>I</td><td>I</td></tr>
+<tr><td>Clinical Approval</td><td>A (trigger/track)</td><td>R approve</td><td>I</td><td>I</td><td>I</td></tr>
+<tr><td>Support Services</td><td>A (trigger/track)</td><td>I</td><td>R approve</td><td>I</td><td>I</td></tr>
+<tr><td>Senior Leadership</td><td>A (prep/route)</td><td>I</td><td>I</td><td>R approve</td><td>I</td></tr>
+<tr><td>Funding</td><td>R/A (booklet)</td><td>I</td><td>I</td><td>C/I</td><td>I</td></tr>
+<tr><td>Pre-PO</td><td>R (reqs, coding)</td><td>I</td><td>C (Biomed/FMO)</td><td>I</td><td>A/R (PO)</td></tr>
+<tr><td>Post-PO</td><td>A (coord)</td><td>C readiness</td><td>C/R (inspect/install)</td><td>I</td><td>R (receiving)</td></tr>
+<tr><td>Payment</td><td>A (match/recon)</td><td>I</td><td>I</td><td>I</td><td>R (AP)</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="panel" id="panel-9"> <h2>9) Glossary</h2><p><strong>NURE:</strong> New / Upgrade / Replacement / Expansion (request classification)</p>
+<p><strong>ESS:</strong> Equipment Specification Summary</p>
+<p><strong>MIFU/IFU:</strong> Manufacturer’s Instructions for Use</p>
+<p><strong>BME:</strong> Biomedical Engineering</p>
+<p><strong>FMO:</strong> Facility Management Office</p>
+<p><strong>GMO:</strong> General Management Office</p>
+<p><strong>CI:</strong> Clinical Informatics</p>
+<p><strong>IPAC:</strong> Infection Prevention &amp; Control</p>
+<p><strong>MED:</strong> Medical Equipment Depot</p>
+<p><strong>MDRD:</strong> Medical Device Reprocessing Dept</p>
+<p><strong>PDHIS:</strong> Provincial Digital Health &amp; Information Systems</p>
+<p><strong>I‑PASS:</strong> IMITS new initiative request</p>
+<p><strong>PIA:</strong> Privacy Impact Assessment</p>
+<p><strong>STRA:</strong> Security Threat &amp; Risk Assessment</p>
+<p><strong>P3:</strong> Phase 3 (TACC Building)</p>
+<p><strong>CAPEX:</strong> Capital Expense</p>
+<p><strong>OPEX:</strong> Operating Expense</p>
+<p><strong>BE:</strong> Budget Estimate</p>
+<p><strong>CEP:</strong> Capital Equipment Prioritization (meeting and rubric)</p>
+<p><strong>MOH:</strong> Ministry of Health</p>
+<p><strong>BCCHF:</strong> BC Children’s Hospital Foundation</p>
+<p><strong>BCWF:</strong> BC Women’s Foundation</p>
+<p><strong>AG:</strong> Annual Grant</p>
+<p><strong>BTL:</strong> Below the Line</p>
+<p><strong>RCI:</strong> Restricted Capital Investment</p>
+<p><strong>RCG:</strong> Restricted Capital Grant</p>
+<p><strong>FY:</strong> Fiscal Year</p>
+<p><strong>FYE:</strong> Fiscal Year End</p></section><section class="panel" id="panel-10"> <h2>10) On Boarding Practice</h2><p>Shadow: open 3 completed tickets and retrace each stage using this guide.</p>
+<p>Create a mock vendor engagement email using the template; check the subject/attachments.</p>
+<p>Practice uploading and renaming 5 files to the correct vendor subfolder with Document Types.</p>
+<p>Draft a one‑pager for senior leadership (what/why/cost/funding/impacts) using a real ticket.</p>
+<p>Reconcile a sample invoice to a PO and funding letter (paired exercise with AP).</p></section><section class="panel" id="panel-11"> <h2>11) Key Links</h2><p>SPO Capital Request Form / Tracker</p>
+<p>SPO Request Checklist / Funding tabs</p>
+<p>Support Services intake forms</p>
+<p>Capital Season Planner</p>
+<p>SP2013 legacy folders (funding letters)</p>
+<p>Financial Signing Register (PeopleSoft)</p></section></div>
+</div></div></main>
+<footer class="site">
+  <div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div>
+</footer>
+
+
+
+
+<footer class="footer"><div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div></footer>
+<script>
+const params = new URLSearchParams(location.search);
+const sec = params.get('s') || '1';
+const stage = params.get('stage');
+function showSection(n){ 
+  document.querySelectorAll('.panel').forEach(function(p){ p.style.display = (p.id==='panel-'+n?'block':'none'); });
+  document.querySelectorAll('.navlink').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-section')===String(n)); });
+  document.querySelectorAll('.sublist').forEach(function(s){ s.style.display='none'; });
+  var sl = document.querySelector('.sublist[data-parent="'+n+'"]'); if(sl) sl.style.display='block';
+}
+
+showSection(sec);
+document.querySelectorAll('.navlink').forEach(function(b){
+  b.addEventListener('click', function(){
+    var n = b.getAttribute('data-section');
+    var sub = document.querySelector('.sublist[data-parent="'+n+'"]');
+    if(sub){ sub.style.display = (sub.style.display==='block'?'none':'block'); }
+  });
+});
+
+if(sec==='5'){ 
+  if(stage){ var d = document.querySelector('.acc[data-stage="'+stage+'"]'); if(d) d.setAttribute('open',''); }
+  var sl = document.querySelector('.sublist[data-parent="5"]'); if(sl) sl.style.display='block';
+}
+document.querySelectorAll('.navlink').forEach(function(b){ b.addEventListener('click', function(){ showSection(b.getAttribute('data-section')); window.scrollTo({top:0,behavior:'smooth'}); }); });
+document.querySelectorAll('.sublink').forEach(function(sb){ sb.addEventListener('click', function(){ showSection(5); var s = sb.getAttribute('data-stage'); var d = document.querySelector('.acc[data-stage="'+s+'"]'); if(d){ d.setAttribute('open',''); d.scrollIntoView({behavior:'smooth', block:'start'}); } }); });
+</script>
+
+<script>
+function navigateTo(secKey){
+  // secKey can be "N" or "N-M" (stage)
+  const parts = secKey.split('-');
+  const n = parts[0];
+  const stage = parts[1];
+  // Show main or stage
+  document.querySelectorAll('.panel').forEach(function(p){ p.style.display='none'; });
+  var pid = 'panel-'+secKey;
+  var panel = document.getElementById(pid);
+  if(!panel){ pid='panel-'+n; panel=document.getElementById(pid); }
+  if(panel){ panel.style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); }
+  // Sidebar active state
+  document.querySelectorAll('.navlink').forEach(function(b){ b.classList.remove('active'); });
+  var btn = document.querySelector('.navlink[data-section="'+secKey+'"]') || document.querySelector('.navlink[data-section="'+n+'"]');
+  if(btn){ btn.classList.add('active'); }
+  // Open sublist for vetting
+  var sl = document.querySelector('.sublist[data-parent="'+n+'"]'); if(sl) sl.style.display='block';
+  return false;
+}
+(function(){
+  const params = new URLSearchParams(location.search);
+  const sec = params.get('s') || '1';
+  const stage = params.get('stage');
+  const key = stage ? (sec+'-'+stage) : sec;
+  navigateTo(key);
+})();
+</script>
+
+
+<script>
+(function(){
+  // Expand/collapse for sections with children (e.g., 5)
+  document.querySelectorAll('.navlink[data-has-children="true"]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      // If user clicks on caret area, toggle; otherwise navigate
+      var sub = document.querySelector('.sublist[data-parent="'+btn.getAttribute('data-section')+'"]');
+      if(!sub){ return; }
+      // If sublist is visible and the current panel is the parent, just toggle
+      if(sub.style.display==='block'){ sub.style.display='none'; btn.classList.remove('expanded'); }
+      else { sub.style.display='block'; btn.classList.add('expanded'); }
+    });
+  });
+  // Only show caret for links with children
+  document.querySelectorAll('.navlink:not([data-has-children="true"]) .caret').forEach(function(c){ c.remove(); });
+})();
+</script>
+
+
+<script>
+(function(){
+  var parentBtn = document.querySelector('.navlink[data-section="5"]');
+  var sub = document.querySelector('.sublist[data-parent="5"]');
+  if(parentBtn && sub){
+    // Start collapsed
+    sub.style.display = 'none';
+    parentBtn.addEventListener('click', function(e){
+      // Show panel 5 always
+      if (typeof navigateTo === 'function') { navigateTo('5'); }
+      // Toggle children visibility
+      sub.style.display = (sub.style.display==='block' ? 'none' : 'block');
+    });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  var parentBtn = document.querySelector('.navlink[data-section="5"]');
+  var sub = document.querySelector('.sublist[data-parent="5"]');
+  if(parentBtn && sub){
+    sub.style.display = 'none';
+    parentBtn.addEventListener('click', function(e){
+      if(typeof navigateTo==='function'){ navigateTo('5'); }
+      sub.style.display = (sub.style.display==='block'?'none':'block');
+    });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  var parentBtn = document.querySelector('.navlink[data-section="5"]');
+  var sub = document.querySelector('.sublist[data-parent="5"]');
+  if(parentBtn && sub){
+    sub.style.display = 'none';
+    parentBtn.addEventListener('click', function(e){
+      // Always navigate to parent 5 panel first
+      if (typeof navigateTo === 'function') { navigateTo('5'); }
+      // Then toggle child visibility
+      sub.style.display = (sub.style.display==='block' ? 'none' : 'block');
+    });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  var p = document.querySelector('.navlink[data-section="5"]');
+  var sub = document.querySelector('.sublist[data-parent="5"]');
+  if(p && sub){
+    sub.style.display = 'none';
+    p.addEventListener('click', function(e){
+      if (typeof navigateTo === 'function') { navigateTo('5'); }
+      sub.style.display = (sub.style.display==='block' ? 'none' : 'block');
+    });
+  }
+})();</script>
+
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capital Process Training — Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css" />
+</head><body>
+<header class="site">
+  <div class="container nav">
+    <div class="brand"><span class="kicker">BMO</span><strong>Training Hub</strong></div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink" href="../index.html">Home</a>
+      <a class="navlink" href="../training.html">Training</a>
+      <a class="navlink" href="../capital.html">Capital Season</a>
+      <a class="navlink" href="../projects.html">Projects</a>
+      <a class="navlink active" href="../quiz.html">Quiz</a>
+      <a class="navlink" href="../faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <a class="btn" href="../quiz.html">← Back</a>
+    <div class="card" style="margin-top:10px">
+      <div><strong>Module:</strong> Capital Process Training • <strong>Question</strong> <span id="qNum"></span>/<span id="qTotal"></span></div>
+      <div id="qBody" style="margin-top:10px"></div>
+      <div style="display:flex; gap:8px; margin-top:12px">
+        <button class="btn" id="prevBtn" disabled>Back</button>
+        <button class="btn" id="nextBtn">Next</button>
+        <button class="btn primary" id="submitBtn" style="margin-left:auto; display:none">Submit</button>
+      </div>
+    </div>
+    <div class="card" id="scoreCard" style="display:none; margin-top:12px">
+      <h3>Results</h3>
+      <p id="scoreText"></p>
+    </div>
+  </div>
+</main>
+<footer class="site"><div class="container">© 2025 BMO</div></footer>
+<script>
+const mod = {"id": "capital process training", "title": "Capital Process Training", "questions": [{"type": "sa", "q": "Short answer placeholder."}, {"type": "mc", "q": "Multiple choice placeholder.", "opts": ["Option A", "Option B", "Option C", "Option D"], "answer": 1}, {"type": "tf", "q": "True or false placeholder.", "answer": true}]};
+let i=0; let answers = new Array(mod.questions.length).fill(null);
+document.getElementById('qTotal').textContent = mod.questions.length;
+function render(){
+  const q = mod.questions[i];
+  document.getElementById('qNum').textContent = i+1;
+  const body = document.getElementById('qBody'); body.innerHTML='';
+  if(q.type==='mc'){
+    const opts = (q.opts && q.opts.length) ? q.opts : ['Option A','Option B','Option C','Option D'];
+    body.innerHTML = `<p><strong>${q.q}</strong></p>`;
+    const form = document.createElement('div');
+    opts.forEach((opt,idx)=>{
+      form.innerHTML += `<div><label><input type="radio" name="mc" value="${idx}" ${answers[i]===idx?'checked':''}> ${opt}</label></div>`;
+    });
+    body.appendChild(form);
+  }else if(q.type==='tf'){
+    body.innerHTML = `<p><strong>${q.q}</strong></p>
+      <div><label><input type="radio" name="tf" value="true" ${answers[i]===true?'checked':''}> True</label></div>
+      <div><label><input type="radio" name="tf" value="false" ${answers[i]===false?'checked':''}> False</label></div>`;
+  }else{
+    body.innerHTML = `<p><strong>${q.q}</strong></p><textarea id="sa" rows="4" style="width:100%"></textarea>`;
+    if(answers[i]) document.getElementById('sa').value = answers[i];
+  }
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').style.display = i < mod.questions.length-1 ? '' : 'none';
+  document.getElementById('submitBtn').style.display = i === mod.questions.length-1 ? '' : 'none';
+}
+function save(){
+  const q = mod.questions[i];
+  if(q.type==='mc'){
+    const chosen = document.querySelector('input[name="mc"]:checked'); answers[i] = chosen? Number(chosen.value): null;
+  } else if(q.type==='tf'){
+    const chosen = document.querySelector('input[name="tf"]:checked'); answers[i] = chosen? (chosen.value==='true') : null;
+  } else {
+    answers[i] = document.getElementById('sa')?.value || '';
+  }
+}
+document.getElementById('prevBtn').addEventListener('click', ()=>{ if(i>0){ save(); i--; render(); }});
+document.getElementById('nextBtn').addEventListener('click', ()=>{ if(i<mod.questions.length-1){ save(); i++; render(); }});
+document.getElementById('submitBtn').addEventListener('click', ()=>{
+  save();
+  let score=0, possible=0;
+  mod.questions.forEach((q,idx)=>{
+    if(q.type==='mc' && typeof q.answer!=='undefined'){ possible++; if(answers[idx]===q.answer) score++; }
+    if(q.type==='tf' && typeof q.answer!=='undefined'){ possible++; if(String(answers[idx])===String(q.answer)) score++; }
+  });
+  const pct = Math.round((score/Math.max(1,possible))*100);
+  document.getElementById('scoreText').textContent = `You scored ${pct}% (${score}/${possible} graded).`;
+  document.getElementById('scoreCard').style.display='block';
+  fetch('../api/quiz-result',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({module: mod.title, score: pct, answers})}).catch(()=>{});
+});
+render();
+</script>
+</body></html>

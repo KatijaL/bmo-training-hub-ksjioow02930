@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMO Training Hub — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site">
+  <div class="container nav" role="navigation" aria-label="Primary" style="justify-content:flex-start">
+    <div class="brand" aria-label="Site" style="margin-right:18px">
+      <span class="kicker" style="color:var(--mid)">BMO</span>
+      <strong>Training Hub</strong>
+    </div>
+    <span class="spacer"></span>
+    <nav style="display:flex; gap:10px">
+      <a class="navlink active" href="index.html">Home</a>
+      <a class="navlink" href="training.html">Training</a>
+      <a class="navlink" href="capital.html">Capital Season</a>
+      <a class="navlink" href="sop-tor.html">SOP & TOR</a>
+      <a class="navlink" href="projects.html">Projects</a>
+      <a class="navlink" href="quiz.html">Quiz</a>
+      <a class="navlink" href="faq.html">FAQ & Contact</a>
+    </nav>
+  </div>
+</header>
+  <main class="hero">
+    <div class="container">
+      <div class="titles">
+        <span class="badge">Welcome to BMO</span>
+        <div class="title1">Business Management Office</div>
+        <div class="title2">BC Children’s & Women’s Hospital</div>
+        <div class="title3">Training, workflows, and resources</div>
+      </div>
+      
+      <div class="search-area"> <div class="search-area"> <label for="homeSearch"><strong>Search training and resources</strong></label>
+<form class="searchbar" action="search.html" method="get" role="search"><input id="homeSearch" id="homeSearch" name="q" type="search"  placeholder="Search topics, FAQs, people…" /><button class="btn primary" type="submit">Search</button></form></div></div>
+
+      <section aria-labelledby="manageHeading" style="margin-top:28px">
+        <h2 id="manageHeading">What we manage</h2>
+        <div class="cards equal">
+          <article class="card">
+            <h3>Operations & Clinical Standardization</h3>
+            <p class="muted">We reduce variation, enable safe installs, and keep day‑to‑day operations humming across programs.</p>
+            <div class="details"><p>Our Operations & Clinical Standardization portfolio focuses on harmonizing equipment, workflows, and support services across clinics so staff encounter familiar layouts and reliable tools room‑to‑room. We partner with Biomed, FMO, IPAC/MDRD, and CI/PDHIS to ensure new devices are serviceable, installable, and cleanable. We support readiness checks for power/data, vendor PM models, and surface/material compatibility, and we maintain the SOPs that keep devices safe and dependable throughout their life.</p></div><span class="grow"></span><a class="see-more" href="#" onclick="return window.SeeMore.toggle(this)"><a class="see-more" href="#" onclick="return window.SeeMore.toggleCard(this)">See more ▾</a>
+          </article>
+          <article class="card">
+            <h3>Capital Requests &amp;<br>Prioritization</h3><p class="lead muted">From intake to funding, we run the annual capital cycle and urgent requests with clear quality gates.</p><div class="details"><p>We guide requests from idea → vetted need → funded. Using SPO, we collect vendor packages (quotes/specs/warranty/service/consumables/Health Canada), route Support Services approvals, confirm leadership endorsement, and prepare submissions to Foundations and MoH.</p></div><span class="grow"></span><a class="see-more" href="#" onclick="return window.SeeMore.toggleCard(this)">See more ▾</a></article>
+          <article class="card">
+            <h3>Procurement & Project Management</h3>
+            <p class="muted">Clean Cap/ePro requisitions, timely POs, coordinated installs, and invoice reconciliation to close the loop.</p>
+            <div class="details"><p>Once funded, we finalize quotes and coding, raise Cap/ePro requisitions, and hand off for PO issuance. Post‑PO, we track shipments, stage receiving, book Biomed inspection and FMO readiness, schedule in‑service, and manage deficiencies. We reconcile invoices in Basware to PO lines and funding letters.</p></div><span class="grow"></span><a class="see-more" href="#" onclick="return window.SeeMore.toggle(this)"><a class="see-more" href="#" onclick="return window.SeeMore.toggleCard(this)">See more ▾</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="team" style="margin-top:22px">
+        <h2>Team snapshot</h2>
+        <p><a href="team.html">Meet the BMO team → quick snapshot on roles and contacts.</a></p>
+      </section>
+
+      <section aria-labelledby="jumpHeading" style="margin-top:22px">
+        <h2 id="jumpHeading">Jump to training</h2>
+        <div class="cards equal">
+          <article class="card">
+            <h3>All training</h3>
+            <p class="muted">Browse all topics. Process • System • Guideline</p>
+            <a class="btn" href="training.html">Open</a>
+          </article>
+          <article class="card">
+            <h3>Capital</h3>
+            <p class="muted">Capital Process • SPO System • Funding</p>
+            <a class="btn" href="training.html?filter=capital">Open</a>
+          </article>
+          <article class="card">
+            <h3>Procurement</h3>
+            <p class="muted">Pre‑PO • Post‑PO • Invoicing • Reconciliation</p>
+            <a class="btn" href="training.html?filter=procurement">Open</a>
+          </article>
+        </div>
+      </section>
+
+      <div id="homeResults" class="container" style="max-width:900px; margin-top:18px; display:none"></div>
+      <section id="homeBottom" style="margin-top:28px">
+        <h2>Quick Q&A</h2>
+        <div class="faq-carousel"><button class="arrow left" id="qaPrev" aria-label="Prev">►</button><div class="panel"><div id="qaQuestion"></div><div class="meter" id="qaMeter"></div></div><button class="arrow" id="qaNext" aria-label="Next">►</button></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site">
+  <div class="container">© 2025 Business Management Office — BC Children’s & Women’s Hospital. Built for accessibility and responsiveness.</div>
+</footer>
+  <script defer src="assets/js/home.js"></script>
+  <script src="assets/js/forms-hooks.js"></script>
+</body>
+</html>
