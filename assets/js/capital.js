@@ -1,10 +1,10 @@
 
 const STAGES = [
   {k:'submission', t:'Request Submission', body:`
-    <p>Submit requests in SPO before Sept 30. Include NURE, clinical need, urgency, and any known operating impacts.</p>
+    <p>Submit requests in SPO before August 31. Include NURE, clinical need, urgency, and any known operating impacts.</p>
     <ul>
       <li>Attach current quotes/specs; use CWBMO naming on uploads.</li>
-      <li>Timeline context: planning cadence runs roughly Sept 30 → Mar (+2).</li>
+      <li>Timeline context: planning cadence runs roughly Aug → Mar (+2).</li>
     </ul>`},
   {k:'vendor', t:'Vendor Engagement', body:`
     <p>Gather a complete vendor package: brochure/specs, quotes, warranty/PM, training, installation scope, lead times, and trade‑in options.</p>
